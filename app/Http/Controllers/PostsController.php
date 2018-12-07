@@ -7,6 +7,7 @@ use Webpatser\Uuid\Uuid;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use App\Users;
 
 class PostsController extends Controller
 {
@@ -41,10 +42,11 @@ class PostsController extends Controller
     $post->caption = $request->input('caption');
     $post->type = $request->input('type');
     $post->user_id = Auth::id();
+    $post->user_name = Users::name(whereid(Auth::id())->get());
     $post->image_url = $image->getFilename().'.'.$extension;
     $post->save();
 
     return redirect()->route('profile');
   }
-  
+
 }

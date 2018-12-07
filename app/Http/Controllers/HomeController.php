@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+//facades
 use Illuminate\Http\Request;
+//models
 use App\Posts;
+use App\User;
+use App\Users;
 
 class HomeController extends Controller
 {
@@ -25,6 +29,9 @@ class HomeController extends Controller
     public function index()
     {
         $posts = Posts::all();
-        return view('home')->with('posts', $posts);
+        $users = Users::all();
+
+        return view('home')->with('posts', $posts, 'users', $users);
+
     }
 }
