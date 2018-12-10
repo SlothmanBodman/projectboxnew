@@ -34,4 +34,16 @@ class HomeController extends Controller
         return view('home')->with('posts', $posts, 'users', $users);
 
     }
+
+    public function filter(Request $request)
+    {
+
+      $type = $request->input('type');
+      //dd($type);
+
+      $posts = Posts::wheretype($type)->get();
+      //dd($posts);
+      return view('home')->with('posts', $posts);
+
+    }
 }

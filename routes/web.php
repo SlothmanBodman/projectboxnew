@@ -18,12 +18,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//public application routes
+/*PUBLIC APPLICATION ROUTES*/
+
+//home page
 Route::get('/home', 'HomeController@index')->name('home');
 
+//projects page
 Route::get('/projects', 'PagesController@projects')->name('projects');
 
+//profile page
 Route::get('/profile', 'PagesController@profile')->name('profile');
 
-//function routes
+/*FUNCTION ROUTES*/
+
+//create a post
 Route::post('/newpost', 'PostsController@create')->name('newpost');
+
+//filter feed posts
+Route::post('/filter', 'HomeController@filter')->name('filter');

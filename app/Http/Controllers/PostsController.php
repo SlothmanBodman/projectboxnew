@@ -42,7 +42,7 @@ class PostsController extends Controller
     $post->caption = $request->input('caption');
     $post->type = $request->input('type');
     $post->user_id = Auth::id();
-    $post->user_name = Users::name(whereid(Auth::id())->get());
+    $post->user_name = Auth::user()->name;
     $post->image_url = $image->getFilename().'.'.$extension;
     $post->save();
 
