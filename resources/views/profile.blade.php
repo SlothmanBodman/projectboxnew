@@ -1,20 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Profile</div>
-
-                <div class="card-body">
-                  <p>View your posts and responses, share a new project or manage your account settings.</p>
+            <div class="content-container">
+                <div class="content-container-header">
+                  New Post
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-header">New Post</div>
-
-                <div class="card-body">
+                <div class="content-container-body">
                   <form method="POST" action="{{ route('newpost') }}" enctype="multipart/form-data">
                       @csrf
 
@@ -72,16 +63,10 @@
                   </form>
                 </div>
             </div>
+
                 @if(count($posts) > 0)
                   @include("includes.inc-posts-personal")
                 @else
-                  <div class="card">
-                    <div class="card-body">
                       <p>You have no posts. Completed Briefs and Projects you chose to share will appear here!</p>
-                    </div>
-                  </div>
                 @endif
-        </div>
-    </div>
-</div>
 @endsection

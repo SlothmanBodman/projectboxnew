@@ -1,0 +1,166 @@
+/*Defaults*/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+:root {
+  --white: white;
+  --light-green: #22b573;
+  --dark-green: #006837;
+  --bg-green: #bde9d5;
+}
+
+/*General/Multi Use Stylings*/
+a {
+  text-decoration: none;
+  color: var(--light-green);
+}
+
+a:hover {
+  color: var(--dark-green);
+}
+
+/*Welcome Page*/
+
+.wlc-body-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 1vh 1vw;
+}
+  .wlc-content {
+    display: flex;
+    width: 60%;
+    height: 100vh;
+    align-items: center;
+  }
+    .wlc-title {
+      font-size: 6em;
+      padding: 0;
+      color: var(--light-green);
+    }
+    .wlc-para {
+      padding-left: 9px;
+    }
+    .wlc-nav-container {
+      padding-top: 10px;
+      padding-left: 9px;
+    }
+
+/*Genral App Layouting*/
+
+  .nav-container {
+    position: fixed;
+    background-color: var(--light-green);
+    padding: 5px;
+    width: 100vw;
+    z-index: 5;
+  }
+    .nav-left {
+      width: 30%;
+      display: inline-block;
+    }
+    .nav-right {
+      width: 69%;
+      display: inline-block;
+      right: 0;
+      text-align: right;
+    }
+      .nav-item {
+        color: white;
+        cursor: pointer;
+      }
+
+  .page-about {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+  }
+
+  .page-textbox {
+      position: absolute;
+      width: auto;
+      height: auto;
+      background-color: var(--light-green);
+      bottom: 0;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  /*Body Styling*/
+  .body-container {
+    width: 100vw;
+    height: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+    .content-container {
+      width: 40%;
+      height: auto;
+      background-color: var(--bg-green);
+      margin: 2% auto 2% auto;
+    }
+
+      .content-container-header {
+        width: 98%;
+        padding: 1%;
+        background-color: var(--light-green);
+        color: white;
+        font-size: 20px;
+      }
+
+      .content-container-body {
+        width: 98%;
+        padding: 1%;
+        font-size: 14px;
+      }
+
+        .post-img {
+          width: 100%;
+        }
+
+      .content-container-footer {
+        width: 98%;
+        padding: 1%;
+        background-color: var(--light-green);
+        color: white;
+        font-size: 14px;
+      }
+
+/*Forms and Buttons*/
+
+input {
+  display: block;
+  width: 98%;
+  height: 20px;
+  border: none;
+  background-color: var(--white);
+  padding: 1%;
+  font-size: 14px;
+}
+
+select {
+  display: block;
+  width: 98%;
+  height: 20px;
+  border: none;
+  background-color: var(--white);
+  padding: 1%;
+  font-size: 14px;
+}
+
+button {
+  padding: 10px;
+  background-color: var(--light-green);
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  font-size: 16px;
+  margin: 1% 0 0 0;
+}
+
+button:hover {
+  background-color: var(--dark-green);
+}
