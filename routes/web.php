@@ -36,3 +36,6 @@ Route::post('/newpost', 'PostsController@create')->name('newpost');
 
 //filter feed posts
 Route::post('/filter', 'HomeController@filter')->name('filter');
+
+//like post ajax route
+Route::post('/like', 'PostsController@likePost')->name('like');

@@ -35,6 +35,7 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\Users' => $baseDir . '/app/Users.php',
+    'App\\likes' => $baseDir . '/app/likes.php',
     'Backpack\\Base\\BaseServiceProvider' => $vendorDir . '/backpack/base/src/BaseServiceProvider.php',
     'Backpack\\Base\\app\\Console\\Commands\\AddCustomRouteContent' => $vendorDir . '/backpack/base/src/app/Console/Commands/AddCustomRouteContent.php',
     'Backpack\\Base\\app\\Console\\Commands\\AddSidebarContent' => $vendorDir . '/backpack/base/src/app/Console/Commands/AddSidebarContent.php',

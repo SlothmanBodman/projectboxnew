@@ -23,6 +23,14 @@ a:hover {
   color: var(--dark-green);
 }
 
+p {
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
 /*Welcome Page*/
 
 .wlc-body-container {

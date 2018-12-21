@@ -548,6 +548,7 @@ class ComposerStaticInit273c5ce0531f77d415be3b74776c7eb0
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Users' => __DIR__ . '/../..' . '/app/Users.php',
+        'App\\likes' => __DIR__ . '/../..' . '/app/likes.php',
         'Backpack\\Base\\BaseServiceProvider' => __DIR__ . '/..' . '/backpack/base/src/BaseServiceProvider.php',
         'Backpack\\Base\\app\\Console\\Commands\\AddCustomRouteContent' => __DIR__ . '/..' . '/backpack/base/src/app/Console/Commands/AddCustomRouteContent.php',
         'Backpack\\Base\\app\\Console\\Commands\\AddSidebarContent' => __DIR__ . '/..' . '/backpack/base/src/app/Console/Commands/AddSidebarContent.php',

@@ -24,7 +24,12 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/likeAjax.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/nav-control.js') }}"></script>
+
+    <script type="text/javascript">
+      var urlLike ='{{ route('like') }}';
+    </script>
 </head>
 <body>
     <div id="app">

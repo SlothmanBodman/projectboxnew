@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use App\Users;
+use App\likes;
 
 class PostsController extends Controller
 {
@@ -47,6 +48,15 @@ class PostsController extends Controller
     $post->save();
 
     return redirect()->route('profile');
+  }
+
+  public function likePost(Request $request)
+  {
+    $like = new \App\likes();
+
+    $like->user_id = Auth::id();
+    $like->post_id = $request['postId'];
+    $like->save();
   }
 
 }
