@@ -12,13 +12,12 @@
       </div>
       <div class="content-container-footer">
         <p>
-            <i class="fas fa-heart like-trigger" style="color: white;cursor: pointer"></i>
-            <i class="fas fa-heart unlike-trigger hidden" style="color: red;cursor: pointer"></i>
-            @if (empty($post->likes))
-              0
-            @else
+
+
+              <i class="fas fa-heart unlike-trigger hidden" style="color: red;cursor: pointer"></i>
+              <i class="fas fa-heart like-trigger" name="{{$post->id}}" style="color: white;cursor: pointer"></i>
               {{$post->likes}}
-            @endif
+
         </p>
       </div>
   </div>

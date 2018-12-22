@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 //facades
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 //models
 use App\Posts;
 use App\User;
 use App\Users;
+use App\likes;
 
 class HomeController extends Controller
 {
@@ -34,9 +36,10 @@ class HomeController extends Controller
         $img = '../public/images/hero-home.png';
         //database data
         $posts = Posts::all();
-        $users = Users::all();
+
+        //dd($likeArr);
         //return view function
-        return view('home', compact('title','subtitle', 'img'))->with('posts', $posts, 'users', $users);
+        return view('home', compact('title','subtitle', 'img'))->with('posts', $posts);
 
     }
 
@@ -52,6 +55,7 @@ class HomeController extends Controller
 
       //get posts from table where type is selected type
       $posts = Posts::wheretype($type)->get();
+      $likes = likes::all();
 
       return view('home', compact('title', 'img', 'subtitle'))->with('posts', $posts);
 

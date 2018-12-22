@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//facades and helpers
 use Illuminate\Http\Request;
 use Webpatser\Uuid\Uuid;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+//database models
 use App\Users;
 use App\likes;
 
@@ -23,7 +25,7 @@ class PostsController extends Controller
   {
       $this->middleware('auth');
   }
-
+/*CREATE NEW POST*/
   public function create(Request $request)
   {
     //validate form data
@@ -44,19 +46,25 @@ class PostsController extends Controller
     $post->type = $request->input('type');
     $post->user_id = Auth::id();
     $post->user_name = Auth::user()->name;
+    $post->likes = 0;
     $post->image_url = $image->getFilename().'.'.$extension;
     $post->save();
 
     return redirect()->route('profile');
   }
-
+/*ADD POST LIKE*/
   public function likePost(Request $request)
   {
+    //edit posts like Count
+    $postId = $request->input('postId');
+    DB::table('posts')->where('id', $postId)->increment('likes');
+    //create new like instance
     $like = new \App\likes();
-
+    //insert like data
     $like->user_id = Auth::id();
-    $like->post_id = $request['postId'];
+    $like->post_id = $request->input('postId');
     $like->save();
+    //end process
+    return;
   }
-
 }

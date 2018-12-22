@@ -1,10 +1,11 @@
 $('.like-trigger').on('click', function(event){
   event.preventDefault();
-  postId = event.target.parentNode.parentNode.dataset['postid'];
+  postId = $(this).attr('name');
+  console.log(postId);
   $.ajax({
-    headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+    beforeSend: function(xhr){xhr.setRequestHeader('X-CSRF-TOKEN', $("#token").attr('content'));},
     method: 'POST',
     url: urlLike,
-    data: {}
+    data: {postId: postId}
   });
 });

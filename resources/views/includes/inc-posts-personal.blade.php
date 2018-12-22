@@ -8,17 +8,10 @@
         </div>
         <div class="content-container-footer">
           <p>{{$post->user_name}}: {{$post->caption}}</p>
+          <p style="display: none;" id="postId">{{$post->id}}</p>
         </div>
         <div class="content-container-footer">
-          <p>
-              <i class="fas fa-heart like-trigger" style="color: white;cursor: pointer"></i>
-              <i class="fas fa-heart unlike-trigger hidden" style="color: red;cursor: pointer"></i>
-              @if (empty($post->likes))
-                0
-              @else
-                {{$post->likes}}
-              @endif
-          </p>
+          <p>Likes: {{$post->likes}}</p>
         </div>
     </div>
 @endforeach
