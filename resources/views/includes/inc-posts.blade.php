@@ -12,11 +12,11 @@
         <div class="content-container-footer">
           <p>
                 @if(in_array($post->id, $userLikes))
-                  <i class="fas fa-heart unlike-trigger" style="color: red;cursor: pointer"></i>
+                  <i class="fas fa-heart unlike-trigger" style="color: red;"></i>
                   <i class="fas fa-heart like-trigger hidden" name="{{$post->id}}" style="color: white;cursor: pointer"></i>
                   {{$post->likes}}
                 @else
-                  <i class="fas fa-heart unlike-trigger hidden" style="color: red;cursor: pointer"></i>
+                  <i class="fas fa-heart unlike-trigger hidden" style="color: red;"></i>
                   <i class="fas fa-heart like-trigger" name="{{$post->id}}" style="color: white;cursor: pointer"></i>
                   {{$post->likes}}
                 @endif

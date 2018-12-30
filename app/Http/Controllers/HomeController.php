@@ -37,12 +37,7 @@ class HomeController extends Controller
         $img = '../public/images/hero-home.png';
         //database data
         $posts = Posts::all();
-
-        //get liked posts
-        $userLikes = DB::table('likes')->pluck('post_id')->where('user_id', Auth::id())->all();
-
-        dd($userLikes);
-        //dd($posts);
+        $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
         //return view function
         return view('home', compact('title','subtitle', 'img'))->with('posts', $posts)->with('userLikes', $userLikes);
@@ -62,7 +57,7 @@ class HomeController extends Controller
       //get posts from table where type is selected type
       $posts = Posts::wheretype($type)->get();
       //get liked posts
-      $userLikes = likes::whereuser_id(Auth::id())->get()->toArray();
+      $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
       return view('home', compact('title', 'img', 'subtitle'))->with('posts', $posts, 'userLikes', $userlikes);
 
