@@ -34,35 +34,8 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                @guest
                         <a class="nav-item-mob" href="{{ route('login') }}">{{ __('Login') }}</a>
-                    @if (Route::has('register'))
-                            <a class="nav-item-mob" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    @endif
-                @else
-                            <!--Profile Page-->
-                            <a class="nav-item-mob" href="{{ route('profile') }}">
-                                {{ Auth::user()->name }}
-                            </a>
-                            <!--Home Link-->
-                            <a class="nav-item-mob" href="{{ route('home') }}">
-                                {{ __('Home') }}
-                            </a>
-                            <!--Projects Link-->
-                            <a class="nav-item-mob" href="{{ route('projects') }}">
-                                {{ __('Projects') }}
-                            </a>
-                            <!--Logout Function-->
-                            <a class="nav-item-mob" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                @endguest
+                        <a class="nav-item-mob" href="{{ route('register') }}">{{ __('Register') }}</a>
             </ul>
           </div>
         </div>
@@ -75,36 +48,8 @@
                 <div class="nav-right">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
                                 <a class="nav-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @if (Route::has('register'))
-                                    <a class="nav-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        @else
-                                    <!--Profile Page-->
-                                    <a class="nav-item" href="{{ route('profile') }}">
-                                        {{ Auth::user()->name }}
-                                    </a>
-                                    <!--Home Link-->
-                                    <a class="nav-item" href="{{ route('home') }}">
-                                        {{ __('Home') }}
-                                    </a>
-                                    <!--Projects Link-->
-                                    <a class="nav-item" href="{{ route('projects') }}">
-                                        {{ __('Projects') }}
-                                    </a>
-                                    <!--Logout Function-->
-                                    <a class="nav-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                        @endguest
+                                <a class="nav-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </ul>
                 </div>
                 <div class="nav-right-mob">

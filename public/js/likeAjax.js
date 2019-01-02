@@ -8,4 +8,8 @@ $('.like-trigger').on('click', function(event){
     url: urlLike,
     data: {postId: postId}
   });
+
+  $(this).hide();
+  $('#unlike' + postId).show();
+
 });
