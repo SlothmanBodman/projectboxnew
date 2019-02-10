@@ -39,3 +39,9 @@ Route::post('/filter', 'HomeController@filter')->name('filter');
 
 //like post ajax route
 Route::post('/like', 'PostsController@likePost')->name('like');
+
+//like post ajax route
+Route::post('/unlike', 'PostsController@unlikePost')->name('unlike');
+
+//comment post ajax routes
+Route::post('/comment', 'PostsController@createComment')->name('comment');

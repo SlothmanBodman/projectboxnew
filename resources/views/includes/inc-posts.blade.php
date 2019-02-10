@@ -7,20 +7,29 @@
           <img class="post-img" src="{{url('storage/'.$post->image_url)}}">
         </div>
         <div class="content-container-footer">
-          <p>{{$post->user_name}}: {{$post->caption}}</p>
-        </div>
-        <div class="content-container-footer">
           <p>
                 @if(in_array($post->id, $userLikes))
-                  <i class="fas fa-heart unlike-trigger" style="color: red;"></i>
-                  <i class="fas fa-heart like-trigger hidden" name="{{$post->id}}" style="color: white;cursor: pointer"></i>
-                  {{$post->likes}}
+                  <i class="fas fa-heart unlike-trigger" name="{{$post->id}}" style="color: red;"></i>
+                  <i class="fas fa-heart like-trigger hidden" id="like{{$post->id}}"  name="{{$post->id}}" style="color: white;cursor: pointer"></i>
+                  <span id="likesCount{{$post->id}}">{{$post->likes}}</span>
                 @else
-                  <i class="fas fa-heart unlike-trigger hidden" id="unlike{{$post->id}}" style="color: red;"></i>
-                  <i class="fas fa-heart like-trigger" name="{{$post->id}}" style="color: white;cursor: pointer"></i>
-                  {{$post->likes}}
+                  <i class="fas fa-heart unlike-trigger hidden" id="unlike{{$post->id}}" name="{{$post->id}}" style="color: red;"></i>
+                  <i class="fas fa-heart like-trigger" id="like{{$post->id}}" name="{{$post->id}}" style="color: white;cursor: pointer"></i>
+                  <span id="likesCount{{$post->id}}" name="{{$post->likes}}">{{$post->likes}}</span>
                 @endif
           </p>
+        </div>
+        <div class="content-container-footer">
+          <p>{{$post->user_name}}: {{$post->caption}}</p>
+        </div>
+        <div class="content-container-footer" style="background-color: var(--bg-green);">
+          <form class="" action="" method="post">
+            <input type="text" class="comment-input{{$post->id}}" style="display:inline-block; width: 77%;"></input>
+            <button type="button" name="{{$post->id}}" class="comment-trigger" style="display:inline-block; width: 20%;">Comment</button>
+          </form>
+        </div>
+        <div class="content-container-footer">
+
         </div>
     </div>
 @endforeach

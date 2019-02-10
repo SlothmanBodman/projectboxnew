@@ -59,7 +59,7 @@ class HomeController extends Controller
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
-      return view('home', compact('title', 'img', 'subtitle'))->with('posts', $posts, 'userLikes', $userlikes);
+      return view('home', compact('title', 'img', 'subtitle'))->with('posts', $posts)->with('userLikes', $userLikes);
 
     }
 }

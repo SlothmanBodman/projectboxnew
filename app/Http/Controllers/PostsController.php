@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 //database models
 use App\Users;
 use App\likes;
+use App\Comments;
 
 class PostsController extends Controller
 {
@@ -65,6 +66,34 @@ class PostsController extends Controller
     $like->post_id = $request->input('postId');
     $like->save();
     //end process
+    return;
+  }
+
+  public function unlikePost(Request $request)
+  {
+    //create relavant data variables
+    $postId = $request->input('postId');
+    $userId = Auth::id();
+    //decrement posts likes
+    DB::table('posts')->where('id', $postId)->decrement('likes');
+    //delete like entry
+    DB::table('likes')->where('post_id', $postId)->where('user_id', $userId)->delete();
+    //end function
+    return;
+  }
+
+
+  public function createComment(Request $request)
+  {
+    //create new comment instance
+    $comment = new \App\comments();
+
+    $comment->user_id = Auth::id();
+    $comment->post_id = $request->input('postId');
+    $comment->caption = $request->input('comment');
+    $comment->likes = 0;
+    $comment->save();
+
     return;
   }
 }
