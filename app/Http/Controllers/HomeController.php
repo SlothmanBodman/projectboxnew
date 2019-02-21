@@ -11,6 +11,7 @@ use App\Posts;
 use App\User;
 use App\Users;
 use App\likes;
+use App\Comments;
 
 class HomeController extends Controller
 {
@@ -36,11 +37,13 @@ class HomeController extends Controller
         $subtitle = 'Your one stop destination for design projects and inspiration!';
         $img = '../public/images/hero-home.png';
         //database data
-        $posts = Posts::all();
+        $posts = Posts::with('comments')->get();
         $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
         //return view function
-        return view('home', compact('title','subtitle', 'img'))->with('posts', $posts)->with('userLikes', $userLikes);
+        return view('home', compact('title','subtitle', 'img'))
+          ->with('posts', $posts)
+          ->with('userLikes', $userLikes);
 
     }
 
@@ -58,8 +61,13 @@ class HomeController extends Controller
       $posts = Posts::wheretype($type)->get();
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
+      //get Comments
+      $comments = Comments::all();
 
-      return view('home', compact('title', 'img', 'subtitle'))->with('posts', $posts)->with('userLikes', $userLikes);
+      return view('home', compact('title', 'img', 'subtitle'))
+        ->with('posts', $posts)
+        ->with('userLikes', $userLikes)
+        ->with('comments', $comments);
 
     }
 }

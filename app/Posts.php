@@ -19,4 +19,8 @@ class Posts extends Model
     {
         return $this->hasMany(likes::class);
     }
+
+    public function comments() {
+        return $this->hasMany("App\Comments", "post_id", "id");
+    }
 }

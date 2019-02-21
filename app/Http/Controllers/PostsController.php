@@ -90,6 +90,7 @@ class PostsController extends Controller
 
     $comment->user_id = Auth::id();
     $comment->post_id = $request->input('postId');
+    $comment->user_name = Auth::user()->name;
     $comment->caption = $request->input('comment');
     $comment->likes = 0;
     $comment->save();

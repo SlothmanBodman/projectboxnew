@@ -28,6 +28,18 @@
             <button type="button" name="{{$post->id}}" class="comment-trigger" style="display:inline-block; width: 20%;">Comment</button>
           </form>
         </div>
+        <!-- COMMENTS SECTION -->
+        <div class="content-container-body">
+          <div class="content-container-comment hidden" id="fake-comment{{$post->id}}">
+            <span >You</span>: <span class="fake-comment"></span>
+          </div>
+        @foreach ($post->comments as $comment)
+            <div class="content-container-comment">
+              <b>{{$comment->user_name}}: {{$comment->caption}}</b>
+            </div>
+      @endforeach
+        </div>
+        <!-- COMMENTS SECTION END-->
         <div class="content-container-footer">
 
         </div>

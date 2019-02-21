@@ -186,6 +186,13 @@ p {
         font-size: 14px;
       }
 
+      .content-container-comment{
+        width: 98%;
+        padding: 1%;
+        background-color: var(--bg-green);
+        border-bottom: solid 1px white;
+      }
+
 /*Forms and Buttons*/
 
 input {
