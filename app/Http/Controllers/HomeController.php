@@ -58,16 +58,14 @@ class HomeController extends Controller
       $type = $request->input('type');
 
       //get posts from table where type is selected type
-      $posts = Posts::wheretype($type)->get();
+      $posts = Posts::wheretype($type)->with('comments')->get();
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
-      //get Comments
-      $comments = Comments::all();
+
 
       return view('home', compact('title', 'img', 'subtitle'))
         ->with('posts', $posts)
-        ->with('userLikes', $userLikes)
-        ->with('comments', $comments);
+        ->with('userLikes', $userLikes);
 
     }
 }

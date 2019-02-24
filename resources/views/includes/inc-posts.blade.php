@@ -33,7 +33,7 @@
           <div class="content-container-comment hidden" id="fake-comment{{$post->id}}">
             <span >You</span>: <span class="fake-comment"></span>
           </div>
-        @foreach ($post->comments as $comment)
+        @foreach ($post->comments->reverse() as $comment)
             <div class="content-container-comment">
               <b>{{$comment->user_name}}: {{$comment->caption}}</b>
             </div>
