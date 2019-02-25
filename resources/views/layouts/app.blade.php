@@ -36,6 +36,8 @@
       var urlLike ='{{ route('like') }}';
       var urlunLike ='{{ route('unlike') }}';
       var urlComment ='{{ route('comment') }}';
+      var urlFollow ='{{ route('follow') }}';
+      var urlUnfollow ='{{ route('unfollow') }}';
     </script>
 </head>
 <body>

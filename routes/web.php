@@ -45,3 +45,8 @@ Route::post('/unlike', 'PostsController@unlikePost')->name('unlike');
 
 //comment post ajax routes
 Route::post('/comment', 'PostsController@createComment')->name('comment');
+
+//follow and unfollow ajax routes
+Route::post('/follow', 'FollowController@follow')->name('follow');
+
+Route::post('/unfollow', 'FollowController@unfollow')->name('unfollow');
