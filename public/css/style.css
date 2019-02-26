@@ -147,14 +147,33 @@ p {
     }
   /*Body Styling*/
   .body-container {
-    width: 100vw;
+    display: inline-block;
+    width: 50vw;
     height: auto;
     padding-top: 5%;
     padding-bottom: 5%;
   }
 
+  .left-options-container {
+    vertical-align: top;
+    display: inline-block;
+    width: 20vw;
+    height: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+  .right-options-container {
+      vertical-align: top;
+      display: inline-block;
+      width: 25vw;
+      height: auto;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+
     .content-container {
-      width: 40%;
+      width: 80%;
       height: auto;
       background-color: var(--bg-green);
       margin: 2% auto 2% auto;

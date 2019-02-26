@@ -33,15 +33,13 @@ class HomeController extends Controller
     public function index()
     {
         //static layout data
-        $title = 'Welcome to Project Box';
-        $subtitle = 'Your one stop destination for design projects and inspiration!';
-        $img = '../public/images/hero-home.png';
+        $title = 'Newsfeed';
         //database data
         $posts = Posts::with('comments')->get();
         $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
         //return view function
-        return view('home', compact('title','subtitle', 'img'))
+        return view('home', compact('title'))
           ->with('posts', $posts)
           ->with('userLikes', $userLikes);
 
@@ -50,9 +48,7 @@ class HomeController extends Controller
     public function filter(Request $request)
     {
       //static layout data
-      $title = 'Welcome to Project Box';
-      $subtitle = 'Your one stop destination for design projects and inspiration!';
-      $img = '../public/images/hero-home.png';
+      $title = 'Newsfeed';
 
       //get filter tag from form data
       $type = $request->input('type');
@@ -63,7 +59,7 @@ class HomeController extends Controller
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
 
-      return view('home', compact('title', 'img', 'subtitle'))
+      return view('home', compact('title'))
         ->with('posts', $posts)
         ->with('userLikes', $userLikes);
 

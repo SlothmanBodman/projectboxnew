@@ -24,22 +24,18 @@ class PagesController extends Controller
   public function projects()
   {
       //static layout data
-      $title = ' Project Briefs';
-      $subtitle = 'Discover monthly, weekly, and randomly generated briefs to fuel your designs!';
-      $img = '../public/images/hero-briefs.png';
+      $title = 'Projects';
       //return view function
-      return view('projects', compact('title','subtitle', 'img'));
+      return view('projects', compact('title'));
   }
   //return profile template
   public function profile()
   {
       //static layout data
-      $title = 'Your Profile';
-      $subtitle = 'Login or Sign Up to share your projects with the world!';
-      $img = '../public/images/hero-profile.png';
+      $title = 'Profile';
       //database data
       $posts = Posts::whereuser_id(Auth::id())->get();
       //return view function
-      return view('profile', compact('title','subtitle', 'img'))->with('posts', $posts);
+      return view('profile', compact('title'))->with('posts', $posts);
   }
 }

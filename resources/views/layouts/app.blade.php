@@ -126,16 +126,15 @@
                   <i style="color: white; cursor: pointer;" class="fas fa-times fa-2x nav-close"></i>
                 </div>
         </nav>
-        <div class="page-about" style="background-image: url({{$img}});">
-          <div class="page-textbox">
-            <h1 style="color: white;">{{$title}}</h1>
-            <p style="color: white;">{{$subtitle}}</p>
-          </div>
+        <div class="left-options-container">
+            @include('includes.inc-left-options')
         </div>
-
         <main class="body-container">
             @yield('content')
         </main>
+        <div class="right-options-container">
+
+        </div>
     </div>
 </body>
 </html>
