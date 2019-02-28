@@ -49,6 +49,9 @@ Route::post('/comment', 'PostsController@createComment')->name('comment');
 //user search query
 Route::any('/usersearch', 'UserController@searchUsers')->name('usersearch');
 
+//user profile Setting
+Route::post('/updateprofile', 'UserController@userSettings')->name('updateprofile');
+
 //follow and unfollow ajax routes
 Route::post('/follow', 'FollowController@follow')->name('follow');
 

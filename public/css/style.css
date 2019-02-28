@@ -308,3 +308,31 @@ button:hover {
   }
 
 }
+
+/*Profile Template*/
+.content-container-profile {
+  width: 100%;
+  height: auto;
+}
+
+  .content-container-profile-img {
+    width: 20%;
+    height: auto;
+    display: inline-block;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+
+  }
+
+  .content-container-profile-img::after {
+    content: "";
+    padding: 50%;
+    display: inline-block;
+  }
+
+  .content-container-profile-bio {
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+  }
