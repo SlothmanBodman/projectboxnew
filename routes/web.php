@@ -46,6 +46,9 @@ Route::post('/unlike', 'PostsController@unlikePost')->name('unlike');
 //comment post ajax routes
 Route::post('/comment', 'PostsController@createComment')->name('comment');
 
+//user search query
+Route::any('/usersearch', 'UserController@searchUsers')->name('usersearch');
+
 //follow and unfollow ajax routes
 Route::post('/follow', 'FollowController@follow')->name('follow');
 

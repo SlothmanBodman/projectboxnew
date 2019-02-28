@@ -1,63 +1,26 @@
 <div class="content-container">
   <div class="content-container-header">
-      Share a Project
+      Quick Links
   </div>
   <div class="content-container-body">
-      <!--New Post Form-->
-      <form method="POST" action="{{ route('newpost') }}" enctype="multipart/form-data">
-          @csrf
-
-          <div class="form-group row">
-              <label for="caption" class="col-md-4 col-form-label text-md-right">{{ __('Caption') }}</label>
-
-              <div class="col-md-6">
-                  <input id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="caption">
-
-                  @if ($errors->has('caption'))
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $errors->first('caption') }}</strong>
-                      </span>
-                  @endif
-              </div>
-          </div>
-
-          <div class="form-group row">
-              <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Catagory') }}</label>
-
-              <div class="col-md-6">
-                  <select id="type" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="type">
-                    <option value="uiux">UI/UX</option>
-                    <option value="branding">Branding</option>
-                    <option value="print">Print</option>
-                    <option value="animation">Animation</option>
-                    <option value="illustration">Illustration</option>
-                    <option value="assets">Digital Assets</option>
-                    <option value="other">Other</option>
-                  </select>
-              </div>
-          </div>
-
-          <div class="form-group row">
-              <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
-
-              <div class="col-md-6">
-                  <input id="file" type="file" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="file" required>
-
-                  @if ($errors->has('file'))
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $errors->first('file') }}</strong>
-                      </span>
-                  @endif
-              </div>
-          </div>
-
-          <div class="form-group row mb-0">
-              <div class="col-md-8 offset-md-4">
-                  <button type="submit" class="btn btn-primary">
-                      {{ __('Post') }}
-                  </button>
-              </div>
-          </div>
-        </form>
+    <!--New Post Form-->
+    <button id="new-post-btn" style="width: 100%;" name="button">New Post</button>
+    <button id="search-btn"style="width: 100%;" name="button">Search Users</button>
   </div>
-</div>
+  </div>
+  <div class="content-container">
+    <div class="content-container-header">
+      Quick Project
+    </div>
+    <div class="content-container-body">
+      <p>Use the button bellow to generate a random project!</p>
+        <button style="width: 100%;"id="generate" onclick="getProject()">Generate!</button>
+        <p>
+          <span id="displayOne"></span>
+          <span id="projectResult"></span>
+          <span id="displayTwo"></span>
+          <span id="nameResult"></span>
+          <span id="companyResult"></span>
+        </p>
+    </div>
+  </div>

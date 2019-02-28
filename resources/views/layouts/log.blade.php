@@ -57,7 +57,7 @@
                   <i style="color: white; cursor: pointer;" class="fas fa-times fa-2x nav-close"></i>
                 </div>
         </nav>
-        <main class="body-container">
+        <main class="body-container-full-width">
             @yield('content')
         </main>
     </div>

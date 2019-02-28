@@ -27,6 +27,10 @@ p {
   font-size: 16px;
 }
 
+.sub-text {
+  font-size: 12px;
+}
+
 .hidden {
   display: none;
 }
@@ -148,16 +152,26 @@ p {
   /*Body Styling*/
   .body-container {
     display: inline-block;
-    width: 50vw;
+    width: 40vw;
     height: auto;
     padding-top: 5%;
     padding-bottom: 5%;
   }
 
+  .body-container-full-width {
+    display: inline-block;
+    width: 100vw;
+    height: auto;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+
+
+
   .left-options-container {
     vertical-align: top;
     display: inline-block;
-    width: 20vw;
+    width: 29vw;
     height: auto;
     padding-top: 5%;
     padding-bottom: 5%;
@@ -166,18 +180,26 @@ p {
   .right-options-container {
       vertical-align: top;
       display: inline-block;
-      width: 25vw;
+      width: 29vw;
       height: auto;
       padding-top: 5%;
       padding-bottom: 5%;
     }
 
     .content-container {
-      width: 80%;
+      width: 90%;
       height: auto;
       background-color: var(--bg-green);
       margin: 2% auto 2% auto;
     }
+
+
+        .content-container-basic {
+          width: 100%;
+          height: auto;
+          background-color: var(--bg-green);
+          margin: 2% auto 2% auto;
+        }
 
       .content-container-header {
         width: 98%;
@@ -210,6 +232,14 @@ p {
         padding: 1%;
         background-color: var(--bg-green);
         border-bottom: solid 1px white;
+      }
+
+      .quick-container {
+        position: fixed;
+        z-index: 20;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(46, 49, 49, 0.5);
       }
 
 /*Forms and Buttons*/

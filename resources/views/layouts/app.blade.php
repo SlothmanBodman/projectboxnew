@@ -26,6 +26,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/generator.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/nav-control.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/quickContainerControl.js') }}"></script>
 
     <!--Ajax Scripts-->
     <script src="{{ asset('js/likeAjax.js') }}" defer></script>
@@ -42,6 +43,110 @@
 </head>
 <body>
     <div id="app">
+      <!--New Post Container-->
+      <div id="new-post-container" class="quick-container hidden">
+          <div class="content-container">
+            <div class="content-container-header">
+              New Post
+            </div>
+            <div class="content-container-body">
+              <form method="POST" action="{{ route('newpost') }}" enctype="multipart/form-data">
+                  @csrf
+
+                  <div class="form-group row">
+                      <label for="caption" class="col-md-4 col-form-label text-md-right">{{ __('Caption') }}</label>
+
+                      <div class="col-md-6">
+                          <input id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="caption">
+
+                          @if ($errors->has('caption'))
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('caption') }}</strong>
+                              </span>
+                          @endif
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Catagory') }}</label>
+
+                      <div class="col-md-6">
+                          <select id="type" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="type">
+                            <option value="uiux">UI/UX</option>
+                            <option value="branding">Branding</option>
+                            <option value="print">Print</option>
+                            <option value="animation">Animation</option>
+                            <option value="illustration">Illustration</option>
+                            <option value="assets">Digital Assets</option>
+                            <option value="other">Other</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('Image') }}</label>
+
+                      <div class="col-md-6">
+                          <input id="file" type="file" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="file" required>
+
+                          @if ($errors->has('file'))
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('file') }}</strong>
+                              </span>
+                          @endif
+                      </div>
+                  </div>
+
+                  <div class="form-group row mb-0">
+                      <div class="col-md-8 offset-md-4">
+                          <button type="submit" class="btn btn-primary">
+                              {{ __('Post') }}
+                          </button>
+                          <button id="quick-container-close" class="btn btn-primary">
+                              {{ __('Close') }}
+                          </button>
+                      </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
+      <div id="new-search-container" class="quick-container hidden">
+          <div class="content-container">
+            <div class="content-container-header">
+              Search Users
+            </div>
+            <div class="content-container-body">
+              <form method="POST" action="{{ route('usersearch') }}" enctype="multipart/form-data">
+                  @csrf
+
+                  <div class="form-group row">
+                      <label for="q" class="col-md-4 col-form-label text-md-right">{{ __('Search...') }}</label>
+
+                      <div class="col-md-6">
+                          <input id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="q">
+
+                          @if ($errors->has('caption'))
+                              <span class="invalid-feedback" role="alert">
+                                  <strong>{{ $errors->first('caption') }}</strong>
+                              </span>
+                          @endif
+                      </div>
+                  </div>
+                  <div class="form-group row mb-0">
+                      <div class="col-md-8 offset-md-4">
+                          <button type="submit" class="btn btn-primary">
+                              {{ __('Search') }}
+                          </button>
+                          <button id="quick-container-close" class="btn btn-primary">
+                              {{ __('Close') }}
+                          </button>
+                      </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+      </div>
       <!--MOBILE-->
         <div class="nav-mob-container">
           <div class="nav-mob-content">
@@ -54,13 +159,13 @@
                             <a class="nav-item-mob" href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
                 @else
-                            <!--Profile Page-->
-                            <a class="nav-item-mob" href="{{ route('profile') }}">
-                                {{ Auth::user()->name }}
-                            </a>
                             <!--Home Link-->
                             <a class="nav-item-mob" href="{{ route('home') }}">
-                                {{ __('Home') }}
+                                {{ __('News') }}
+                            </a>
+                            <!--Profile Page-->
+                            <a class="nav-item-mob" href="{{ route('profile') }}">
+                                {{ __('Profile') }}
                             </a>
                             <!--Projects Link-->
                             <a class="nav-item-mob" href="{{ route('projects') }}">
@@ -96,13 +201,13 @@
                                     <a class="nav-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                             @endif
                         @else
-                                    <!--Profile Page-->
-                                    <a class="nav-item" href="{{ route('profile') }}">
-                                        {{ Auth::user()->name }}
-                                    </a>
                                     <!--Home Link-->
                                     <a class="nav-item" href="{{ route('home') }}">
-                                        {{ __('Home') }}
+                                        {{ __('Newsfeed') }}
+                                    </a>
+                                    <!--Profile Page-->
+                                    <a class="nav-item" href="{{ route('profile') }}">
+                                        {{ __('Profile') }}
                                     </a>
                                     <!--Projects Link-->
                                     <a class="nav-item" href="{{ route('projects') }}">
@@ -133,7 +238,7 @@
             @yield('content')
         </main>
         <div class="right-options-container">
-
+            @include('includes.inc-right-options')
         </div>
     </div>
 </body>
