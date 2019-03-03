@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Posts;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+//database models
+use App\Users;
+use App\User;
+use App\likes;
+use App\Comments;
 
 class PagesController extends Controller
 {
@@ -34,8 +40,23 @@ class PagesController extends Controller
       //static layout data
       $title = 'Profile';
       //database data
-      $posts = Posts::whereuser_id(Auth::id())->get();
+      $posts = Posts::whereuser_id(Auth::id())->with('comments')->get();
       //return view function
       return view('profile', compact('title'))->with('posts', $posts);
+  }
+
+  //return another users profile
+  public function userprofile($id)
+  {
+    //get relevant user data
+    $posts = Posts::whereuser_id($id)->with('comments')->get();
+    $user = Users::find($id);
+    $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
+
+    //return user profile with data
+    return view('userprofile')
+      ->with('user', $user)
+      ->with('posts', $posts)
+      ->with('userLikes', $userLikes);
   }
 }

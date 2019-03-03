@@ -49,6 +49,9 @@ Route::post('/comment', 'PostsController@createComment')->name('comment');
 //user search query
 Route::any('/usersearch', 'UserController@searchUsers')->name('usersearch');
 
+//display user profile
+Route::get('/user/{id}', 'PagesController@userprofile')->name('userprofile');
+
 //user profile Setting
 Route::post('/updateprofile', 'UserController@userSettings')->name('updateprofile');
 
