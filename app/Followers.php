@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Follows extends Model
+class Followers extends Model
 {
   public function users()
   {

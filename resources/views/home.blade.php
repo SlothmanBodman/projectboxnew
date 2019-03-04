@@ -28,9 +28,28 @@
                           </button>
                         </a>
                     </div>
-      </div>
+            </div>
+                    <div class="content-container">
+                      <div class="content-container-header">
+                        Newsfeed Type
+                      </div>
+                      <div class="content-container-body">
+                        <button id="show-newsfeed" style="width: 100%;" name="button">
+                            {{ __('Newsfeed') }}
+                        </button>
+                        <button id="show-globalfeed" style="width: 100%;" name="button">
+                            {{ __('Globalfeed') }}
+                        </button>
+                      </div>
+                    </div>
+
       @if(count($posts) > 0)
+      <div id="follow-feed">
+        @include("includes.inc-posts-follow")
+      </div>
+      <div id="global-feed">
         @include("includes.inc-posts")
+      </div>
       @else
           <div class="content-container">
             <div class="content-container-header">

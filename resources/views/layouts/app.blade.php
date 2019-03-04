@@ -27,6 +27,7 @@
     <script src="{{ asset('js/generator.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/nav-control.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/quickContainerControl.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/feedControl.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/enterPrevent.js') }}"></script>
 
     <!--Ajax Scripts-->

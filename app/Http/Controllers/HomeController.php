@@ -12,6 +12,7 @@ use App\User;
 use App\Users;
 use App\likes;
 use App\Comments;
+use App\Followers;
 
 class HomeController extends Controller
 {
@@ -37,11 +38,14 @@ class HomeController extends Controller
         //database data
         $posts = Posts::with('comments')->get();
         $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
+        $followIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
+        $followPosts = Posts::with('comments')->whereIn('user_id', $followIdArray)->get();
 
         //return view function
         return view('home', compact('title'))
           ->with('posts', $posts)
-          ->with('userLikes', $userLikes);
+          ->with('userLikes', $userLikes)
+          ->with('followPosts', $followPosts);
 
     }
 

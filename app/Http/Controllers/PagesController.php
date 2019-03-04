@@ -11,6 +11,7 @@ use App\Users;
 use App\User;
 use App\likes;
 use App\Comments;
+use App\Followers;
 
 class PagesController extends Controller
 {
@@ -41,8 +42,14 @@ class PagesController extends Controller
       $title = 'Profile';
       //database data
       $posts = Posts::whereuser_id(Auth::id())->with('comments')->get();
+      $followersCount = Followers::where('follow_id', '=', Auth::id())->count();
+      $followingCount = Followers::where('user_id', '=', Auth::id())->count();
+
       //return view function
-      return view('profile', compact('title'))->with('posts', $posts);
+      return view('profile', compact('title'))
+          ->with('posts', $posts)
+          ->with('followersCount', $followersCount)
+          ->with('followingCount', $followingCount);
   }
 
   //return another users profile

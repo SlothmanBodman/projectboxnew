@@ -21,7 +21,10 @@
                         @endif
                       </div>
                     </div>
-                    <button id="follow-btn" value="{{ $user->id }}" style="width: 100%;" name="button">Follow</button>
+                    <form action="{{ route('follow')}}" method="post">
+                      @csrf
+                      <button name="followId" value="{{ $user->id }}" style="width: 100%;" name="button">Follow</button>
+                    </form>
                   </div>
                 </div>
                 @if(count($posts) > 0)
