@@ -23,6 +23,12 @@ a:hover {
   color: var(--dark-green);
 }
 
+.alternate_link {
+  text-decoration: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
 p {
   font-size: 16px;
 }

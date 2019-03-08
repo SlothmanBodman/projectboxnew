@@ -30,6 +30,11 @@ class FollowController extends Controller
 
     public function unfollow(Request $request)
     {
+      $userId = Auth::id();
+      $followId = $request->input('unfollowId');
 
+      DB::table('followers')->where('user_id', $userId)->where('follow_id', $followId)->delete();
+
+      return redirect()->back();
     }
 }

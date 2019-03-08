@@ -51,7 +51,7 @@ class PostsController extends Controller
     $post->image_url = $image->getFilename().'.'.$extension;
     $post->save();
 
-    return redirect()->route('profile');
+    return redirect()->back();
   }
 /*ADD POST LIKE*/
   public function likePost(Request $request)

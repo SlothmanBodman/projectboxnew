@@ -21,10 +21,17 @@
                         @endif
                       </div>
                     </div>
-                    <form action="{{ route('follow')}}" method="post">
-                      @csrf
-                      <button name="followId" value="{{ $user->id }}" style="width: 100%;" name="button">Follow</button>
-                    </form>
+                    @if (in_array($user->id, $followIdArray))
+                      <form action="{{ route('unfollow')}}" method="post">
+                        @csrf
+                        <button name="unfollowId" value="{{ $user->id }}" style="width: 100%;" name="button">Unfollow</button>
+                      </form>
+                    @else
+                      <form action="{{ route('follow')}}" method="post">
+                        @csrf
+                        <button name="followId" value="{{ $user->id }}" style="width: 100%;" name="button">Follow</button>
+                      </form>
+                    @endif
                   </div>
                 </div>
                 @if(count($posts) > 0)

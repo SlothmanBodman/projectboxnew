@@ -1,7 +1,7 @@
 @foreach ($posts->reverse() as $post)
     <div class="content-container">
         <div class="content-container-header">
-          {{$post->user_name}}
+          <a class="alternate_link" href="{{ route('userprofile', ['id' => $post->user_id])}}">{{$post->user_name}}</a>
         </div>
         <div class="content-container-body">
           <img class="post-img" src="{{url('storage/'.$post->image_url)}}">

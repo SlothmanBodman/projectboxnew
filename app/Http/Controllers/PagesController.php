@@ -59,11 +59,13 @@ class PagesController extends Controller
     $posts = Posts::whereuser_id($id)->with('comments')->get();
     $user = Users::find($id);
     $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
+    $followIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
 
     //return user profile with data
     return view('userprofile')
       ->with('user', $user)
       ->with('posts', $posts)
+      ->with('followIdArray', $followIdArray)
       ->with('userLikes', $userLikes);
   }
 }

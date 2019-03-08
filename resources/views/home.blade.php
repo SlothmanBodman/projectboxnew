@@ -43,14 +43,25 @@
                       </div>
                     </div>
 
-      @if(count($posts) > 0)
+
       <div id="follow-feed">
+        @if(count($followPosts) > 0)
         @include("includes.inc-posts-follow")
+        @else
+          <div class="content-container">
+            <div class="content-container-header">
+              Welcome To Project Box
+            </div>
+            <div class="content-contianer-body">
+              <p>Find Users to Follow on the Globalfeed or by searching for friend.</p>
+            </div>
+          </div>
+        @endif
       </div>
       <div id="global-feed">
+        @if(count($posts) > 0)
         @include("includes.inc-posts")
-      </div>
-      @else
+        @else
           <div class="content-container">
             <div class="content-container-header">
               Welcome To Project Box
@@ -59,8 +70,11 @@
               <p>Find Users to Follow on the global Newsfeed or by searching for friend.</p>
             </div>
           </div>
+        @endif
+      </div>
 
-      @endif
+
+
     </div>
     <!--Use Above Code to create personal feed-->
 
