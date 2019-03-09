@@ -1,35 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="content-container">
-    <div class="content-container-header">
-      Project Thumb Nail
+
+  @if (count($briefs) > 0)
+    @foreach($briefs->reverse() as $brief)
+      <div class="content-container">
+        <div class="content-container-header">
+          {{ $brief->title }}
+        </div>
+        <div class="content-container-body">
+          <p>{{ str_limit($brief->content, 200) }}</p>
+            <br>
+          <a href="{{ route('brief', ['title' => $brief->title])}}"> <p>View Full Brief</p> </a>
+        </div>
+        <div class="content-container-footer" style="text-align: right;">
+          <p class="sub-text">| Date Published: {{ $brief->created_at }} | Catagory: {{ $brief->type }} |</p>
+        </div>
+      </div>
+    @endforeach
+  @else
+    <div class="content-container">
+      <div class="content-container-header">
+        No Projects
+      </div>
+      <div class="content-container-body">
+        <p>Unfortunately There are no Projects at this time. Please check back later.</p>
+      </div>
     </div>
-    <div class="content-container-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ex,
-        molestie at sollicitudin sed, suscipit lobortis elit. Suspendisse nec neque
-        porta orci fermentum vulputate...</p>
-        <br>
-      <a href="#"> <p>View Full Brief</p> </a>
-    </div>
-    <div class="content-container-footer" style="text-align: right;">
-      <p class="sub-text">| Date Published: 19-04-18 | Catagory: Logo |</p>
-    </div>
-  </div>
-  <div class="content-container">
-    <div class="content-container-header">
-      Project Thumb Nail
-    </div>
-    <div class="content-container-body">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam arcu ex,
-        molestie at sollicitudin sed, suscipit lobortis elit. Suspendisse nec neque
-        porta orci fermentum vulputate...</p>
-        <br>
-      <a href="#"> <p>View Full Brief</p> </a>
-    </div>
-    <div class="content-container-footer" style="text-align: right;">
-      <p class="sub-text">| Date Published: 19-04-18 | Catagory: Logo |</p>
-    </div>
-  </div>
+  @endif
 
 @endsection

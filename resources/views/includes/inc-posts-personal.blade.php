@@ -22,11 +22,11 @@
             <div class="content-container-comment">
               <b>{{$comment->user_name}}: {{$comment->caption}}</b>
             </div>
-      @endforeach
+        @endforeach
         </div>
         <!-- COMMENTS SECTION END-->
         <div class="content-container-footer">
-          
+
         </div>
     </div>
 @endforeach

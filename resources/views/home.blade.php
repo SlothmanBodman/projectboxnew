@@ -72,10 +72,6 @@
           </div>
         @endif
       </div>
-
-
-
     </div>
-    <!--Use Above Code to create personal feed-->
 
 @endsection

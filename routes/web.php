@@ -26,6 +26,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //projects page
 Route::get('/projects', 'PagesController@projects')->name('projects');
 
+//briefs
+Route::get('/brief/{title}', 'PagesController@project')->name('brief');
+
 //profile page
 Route::get('/profile', 'PagesController@profile')->name('profile');
 

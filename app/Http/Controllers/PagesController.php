@@ -12,6 +12,7 @@ use App\User;
 use App\likes;
 use App\Comments;
 use App\Followers;
+use App\Models\Brief;
 
 class PagesController extends Controller
 {
@@ -32,8 +33,19 @@ class PagesController extends Controller
   {
       //static layout data
       $title = 'Projects';
+
+      $briefs = DB::table('briefs')->get();
       //return view function
-      return view('projects', compact('title'));
+      return view('projects', compact('title'))->with('briefs', $briefs);
+  }
+
+  public function project($title)
+  {
+    $brief = DB::table('briefs')->wheretitle($title)->get();
+
+    //dd($brief);
+
+    return view ('brief')->with('brief', $brief);
   }
   //return profile template
   public function profile()
