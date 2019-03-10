@@ -57,7 +57,7 @@
               @yield('content')
           </main>
           <div class="right-options-container">
-              @include('includes.sidebars.inc-right-options')
+              @include('includes.sidebars.inc-right-options-news')
           </div>
 
       </div>

@@ -1,17 +1,17 @@
 @foreach ($posts->reverse() as $post)
     <div class="content-container">
         <div class="content-container-header">
-          {{$post->user_name}}
+          <p class="small-header">{{$post->user_name}}</p>
         </div>
         <div class="content-container-body">
           <img class="post-img" src="{{url('storage/'.$post->image_url)}}">
         </div>
         <div class="content-container-footer">
-          <p>{{$post->user_name}}: {{$post->caption}}</p>
+          <p class="paragraph">{{$post->user_name}}: {{$post->caption}}</p>
           <p style="display: none;" id="postId">{{$post->id}}</p>
         </div>
         <div class="content-container-footer">
-          <p>Likes: {{$post->likes}}</p>
+          <p class="paragraph">Likes: {{$post->likes}}</p>
         </div>
         <!-- COMMENTS SECTION -->
         <div class="content-container-body">
@@ -20,7 +20,7 @@
           </div>
         @foreach ($post->comments->reverse() as $comment)
             <div class="content-container-comment">
-              <b>{{$comment->user_name}}: {{$comment->caption}}</b>
+              <p class="paragraph">{{$comment->user_name}}: {{$comment->caption}}</p>
             </div>
         @endforeach
         </div>

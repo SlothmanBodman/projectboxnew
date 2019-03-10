@@ -1,7 +1,4 @@
 <div class="content-container">
-  <div class="content-container-header">
-      Your Profile
-  </div>
   <div class="content-container-body">
       <!--User Info-->
         <div class="content-container-profile">
@@ -12,11 +9,11 @@
           @endif
           </div>
           <div class="content-container-profile-bio">
-            <p>{{ Auth::user()->name }}</p>
+            <p class="small-header">{{ Auth::user()->name }}</p>
           @if(isset(Auth::user()->bio))
-            {{ Auth::user()->bio }}
+            <p class="paragraph">{{ Auth::user()->bio }}</p>
           @else
-            <p>No Bio</p>
+            <p class="paragraph">No Bio</p>
           @endif
           </div>
         </div>

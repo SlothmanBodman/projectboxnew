@@ -2,9 +2,6 @@
 
 @section('content')
                 <div class="content-container">
-                  <div class="content-container-header">
-                    {{$user->name}}
-                  </div>
                   <div class="content-container-body">
                     <div class="content-container-profile">
                         @if(isset($user->picture_url))
@@ -15,9 +12,10 @@
                       </div>
                       <div class="content-container-profile-bio">
                         @if(isset($user->bio))
-                        <p>{{ $user->bio }}</p>
+                        <p class="large-header">{{$user->name}}</p>
+                        <p class="paragraph">{{ $user->bio }}</p>
                         @else
-                          <p>No Bio</p>
+                          <p class="paragraph">No Bio</p>
                         @endif
                       </div>
                     </div>
