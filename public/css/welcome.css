@@ -1,0 +1,80 @@
+/*Welcome Page*/
+/*GENERAL STYLINGS*/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Avenir Next';
+  font-size: 12px;
+}
+
+:root {
+  --primary: #9b59b6;
+  --main-bg: #f5f5fa;
+  --container-bg: #ffffff;
+  --form-bg: #f5f5f5;
+  --font-heading: #4a4a4a;
+  --font-basic: #9b9b9b;
+  --font-input: #999999;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+.paragraph {
+  color: var(--font-basic);
+}
+
+.wlc-body-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+  .wlc-content-right {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+  }
+
+  .wlc-buttons {
+    position: fixed;
+    top: 0;
+    padding: 10px 20px 0 0;
+    width: 100%;
+    text-align: right;
+    z-index: 100;
+  }
+
+  .content-vertically-align {
+      width: 50%;
+      margin: auto;
+  }
+
+    .wlc-title-text {
+      color: #9B59B6;
+      font-family: 'Ubuntu';
+      font-size: 50px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+button {
+  height: 27px;
+  width: 160px;
+  color: #FFFFFF;
+  background-color: var(--primary);
+  border-radius: 25px;
+  font-family: "Avenir Next";
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+}

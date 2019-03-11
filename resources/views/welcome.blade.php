@@ -8,44 +8,85 @@
         <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/png" sizes="16x16">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 
         <!-- Styles -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 
     </head>
     <body>
-      @if (Route::has('login'))
-          <div class="wlc-nav-container">
-              @auth
-                  <a href="{{ url('/home') }}" class="wlc-nav-btn">Home</a>
-              @else
-                  <a href="{{ route('login') }}" class="wlc-nav-btn">Login</a>
-
-                  @if (Route::has('register'))
-                      <a href="{{ route('register') }}" class="wlc-nav-btn">Register</a>
-                  @endif
-              @endauth
-          </div>
-      @endif
         <div class="wlc-body-container">
-            <div class="wlc-content">
+              <div class="wlc-content-left">
+                <div class="wlc-title-img">
+                  <img style="width: 20%; height: auto;" src="{{ asset('images/logo-white.png')}}" alt="">
+                </div>
+              </div>
+
+              <div class="wlc-buttons">
+                @if (Route::has('login'))
+                    <div class="wlc-nav-container">
+                        @auth
+                            <a href="{{ url('/home') }}" class="wlc-nav-btn"><button type="button">Home</button></a>
+                        @else
+                          <form method="POST" action="{{ route('login') }}">
+                              @csrf
+                            <div style="display: inline-block;">
+                                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                      <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                                      @if ($errors->has('email'))
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $errors->first('email') }}</strong>
+                                          </span>
+                                      @endif
+
+                                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                      <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                      @if ($errors->has('password'))
+                                          <span class="invalid-feedback" role="alert">
+                                              <strong>{{ $errors->first('password') }}</strong>
+                                          </span>
+                                      @endif
+                                      <div style="display: block;">
+                                          <label class="form-check-label" for="remember">
+                                              {{ __('Remember Me') }}
+                                          </label>
+                                          <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                      </div>
+                                  </div>
+                                      <div style="display: inline-block;">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Login') }}
+                                        </button>
+                                      </div>
+
+                                      <!--
+                                      @if (Route::has('password.request'))
+                                          <a class="btn btn-link" style="display: block;" href="{{ route('password.request') }}">
+                                              {{ __('Forgot Your Password?') }}
+                                          </a>
+                                      @endif
+                                    -->
+                          </form>
+                        @endauth
+                    </div>
+                @endif
+              </div>
+              <div class="wlc-content-right">
               <div class="content-vertically-align">
                 <div class="wlc-title">
-                  <div class="wlc-title-img">
-                    <img style="width: 20%; height: auto;" src="{{ asset('images/logo-white.png')}}" alt="">
-                  </div>
-                  <div class="wlc-title-text">
-                    Project Box
-                  </div>
+                  <div class="wlc-title-text">Creanu</div>
                 </div>
                 <div style="color: white;" class="wlc-para">
-                    <p>Project Box is a design focused social network. We bring
+                    <p class="paragraph">Creanu is a design focused social network. We bring
                       you a range of monthly and weekly project briefs so you
                       are never lacking inspiration! Create a profile to share
                       your work with a friendly community of creative designers
                       and recive feedback to help improve your design skills!</p>
                 </div>
+                <br>
+                <a href="{{ route('register') }}" class="wlc-nav-btn"><button type="button">Register</button></a>
               </div>
             </div>
         </div>

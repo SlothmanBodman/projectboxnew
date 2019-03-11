@@ -43,10 +43,17 @@ img {
   color: var(--font-basic);
 }
 
+.sub-text {
+  color: var(--font-basic);
+  font-size: 8px;
+}
+
 /*Interactive*/
 .hidden {
   display: none;
 }
+
+/*Welcome Area*/
 
 
 /*Navigation Desktop*/
@@ -115,6 +122,16 @@ img {
 
       .nav-icons:hover {
         color: var(--font-input);
+      }
+
+      .logout-btn {
+        margin-right: 10px;
+        color: var(--font-basic);
+      }
+
+      .logout-btn:hover {
+        margin-right: 10px;
+        color: var(--primary);
       }
 
 /*Body Containers*/

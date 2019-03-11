@@ -44,5 +44,17 @@
           </div>
         </div>
       <button id="profile-setting-btn" style="width: 100%;" name="button">Profile Settings</button>
+      <div style="text-align: right;">
+        <!--Logout Function-->
+          <a class="logout-btn" href="{{ route('logout') }}"
+             onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+              {{ __('Logout') }}
+          </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+      </div>
   </div>
 </div>

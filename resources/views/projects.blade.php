@@ -6,10 +6,10 @@
     @foreach($briefs->reverse() as $brief)
       <div class="content-container">
         <div class="content-container-header">
-          {{ $brief->title }}
+          <p class="large-header">{{ $brief->title }}</p>
         </div>
         <div class="content-container-body">
-          <p>{{ str_limit($brief->content, 200) }}</p>
+          <p class="paragraph">{{ str_limit($brief->content, 200) }}</p>
             <br>
           <a href="{{ route('brief', ['title' => $brief->title])}}"> <p>View Full Brief</p> </a>
         </div>
