@@ -64,6 +64,15 @@ body {
       margin-bottom: 20px;
     }
 
+input {
+  height: 21px;
+  width: 162px;
+  border: 1px solid #DBDBDB;
+  border-radius: 6px;
+  background-color: #FAFAFA;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+}
+
 button {
   height: 27px;
   width: 160px;
