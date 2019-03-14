@@ -16,6 +16,46 @@
   --font-basic: #9b9b9b;
   --font-input: #999999;
 }
+.nav-container {
+  display: flex;
+  width: 100vw;
+  height: 100px;
+  align-content: center;
+  justify-content: center;
+
+}
+
+.large-header {
+  font-size: 18px;
+  color: var(--font-heading);
+}
+.reg-label {
+  color: var(--font-basic);
+}
+
+.reg-input {
+  display: block;
+	height: auto;
+	width: 100%;
+	border: 1px solid #DBDBDB;
+	border-radius: 6px;
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+}
+
+.creanu {
+  color: white;
+  font-family: 'Ubuntu';
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.content-container {
+  padding: 20px;
+  border-radius: 6px;	background-color: #FFFFFF;	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  width: 60vw;
+  margin: auto;
+}
 
 body {
   background-color: var(--primary);
@@ -66,7 +106,6 @@ body {
 
 input {
   height: 21px;
-  width: 162px;
   border: 1px solid #DBDBDB;
   border-radius: 6px;
   background-color: #FAFAFA;
@@ -74,7 +113,7 @@ input {
 }
 
 button {
-  height: 27px;
+  height: 23px;
   width: 160px;
   color: #FFFFFF;
   background-color: var(--primary);

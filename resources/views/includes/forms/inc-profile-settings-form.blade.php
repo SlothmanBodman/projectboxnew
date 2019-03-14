@@ -1,8 +1,5 @@
-<div class="content-container">
-  <div class="content-container-header">
-    Profile Settings
-  </div>
-  <div class="content-container-body">
+
+    <p class="large-header">Profile Settings</p>
     <form method="POST" action="{{ route('updateprofile') }}" enctype="multipart/form-data">
         @csrf
 
@@ -10,7 +7,7 @@
             <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Biography') }}</label>
 
             <div class="col-md-6">
-                <input id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="bio">
+                <input class="caption" id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="bio">
 
                 @if ($errors->has('caption'))
                     <span class="invalid-feedback" role="alert">
@@ -37,11 +34,9 @@
                 <button type="submit" class="btn btn-primary">
                     {{ __('Save Changes') }}
                 </button>
-                <button id="quick-container-close-3" type="button" class="btn btn-primary">
+                <button id="quick-container-close-2" type="button" class="btn btn-primary">
                     {{ __('Close') }}
                 </button>
             </div>
         </div>
     </form>
-  </div>
-</div>

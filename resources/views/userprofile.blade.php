@@ -35,13 +35,6 @@
                 @if(count($posts) > 0)
                   @include("includes.inc-posts")
                 @else
-                    <div class="content-container">
-                      <div class="content-container-header">
-                        {{$user->name}}
-                      </div>
-                      <div class="content-contianer-body">
-                        <p>{{$user->name}} has no posts yet.</p>
-                      </div>
-                    </div>
+                        <p class="paragraph">{{$user->name}} has no posts yet.</p>
                 @endif
 @endsection

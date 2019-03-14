@@ -14,6 +14,7 @@ class CreateBriefsTable extends Migration
     public function up()
     {
         Schema::create('briefs', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('type');
             $table->string('title');
             $table->longText('content');

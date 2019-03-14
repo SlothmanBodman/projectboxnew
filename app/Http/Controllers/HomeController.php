@@ -62,10 +62,14 @@ class HomeController extends Controller
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
+      $followIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
+      $followPosts = Posts::with('comments')->whereIn('user_id', $followIdArray)->wheretype($type)->get();
+
 
       return view('home', compact('title'))
         ->with('posts', $posts)
-        ->with('userLikes', $userLikes);
+        ->with('userLikes', $userLikes)
+        ->with('followPosts', $followPosts);
 
     }
 }

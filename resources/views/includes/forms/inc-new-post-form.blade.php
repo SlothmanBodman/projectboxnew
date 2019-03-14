@@ -1,8 +1,5 @@
-<div class="content-container">
-  <div class="content-container-header">
-    New Post
-  </div>
-  <div class="content-container-body">
+
+  <p class="large-header">New Post</p>
     <form method="POST" action="{{ route('newpost') }}" enctype="multipart/form-data">
         @csrf
 
@@ -10,7 +7,7 @@
             <label for="caption" class="col-md-4 col-form-label text-md-right">{{ __('Caption') }}</label>
 
             <div class="col-md-6">
-                <input id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="caption">
+                <input class="caption" id="caption" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="caption">
 
                 @if ($errors->has('caption'))
                     <span class="invalid-feedback" role="alert">
@@ -55,11 +52,9 @@
                 <button type="submit" class="btn btn-primary">
                     {{ __('Post') }}
                 </button>
-                <button id="quick-container-close-1" class="btn btn-primary">
+                <button id="quick-container-close-1" class="btn btn-primary" type="button">
                     {{ __('Close') }}
                 </button>
             </div>
         </div>
     </form>
-  </div>
-</div>

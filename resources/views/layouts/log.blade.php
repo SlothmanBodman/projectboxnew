@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Project Box</title>
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{ asset('images/logo-purple.png') }}" type="image/png" sizes="16x16">
 
     <!-- Fonts/CDN -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -28,34 +28,8 @@
 </head>
 <body>
     <div id="app">
-      <!--MOBILE-->
-        <div class="nav-mob-container">
-          <div class="nav-mob-content">
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Authentication Links -->
-                        <a class="nav-item-mob" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        <a class="nav-item-mob" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </ul>
-          </div>
-        </div>
         <nav class="nav-container">
-            <div class="nav-left">
-              <a class="nav-brand" href="{{ url('/') }}">
-                  <h1 style="color: white;">Project Box</h1>
-              </a>
-            </div>
-                <div class="nav-right">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                                <a class="nav-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                <a class="nav-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </ul>
-                </div>
-                <div class="nav-right-mob">
-                  <i style="color: white; cursor: pointer;" class="fas fa-bars fa-2x nav-open"></i>
-                  <i style="color: white; cursor: pointer;" class="fas fa-times fa-2x nav-close"></i>
-                </div>
+            <div class="creanu">Creanu</div>
         </nav>
         <main class="body-container-full-width">
             @yield('content')

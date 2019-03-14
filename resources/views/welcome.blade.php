@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Project Box</title>
-        <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/png" sizes="16x16">
+        <link rel="icon" href="{{ asset('images/logo-purple.png') }}" type="image/png" sizes="16x16">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -49,13 +49,13 @@
                                           </span>
                                       @endif
                                       <div style="display: block;">
-                                          <label class="form-check-label" for="remember">
+                                          <label class="form-check-label" for="remember" style="width: auto !important;">
                                               {{ __('Remember Me') }}
                                           </label>
                                           <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                       </div>
                                   </div>
-                                      <div style="display: inline-block;">
+                                      <div style="display: inline-block; vertical-align:top;">
                                         <button type="submit" class="btn btn-primary">
                                             {{ __('Login') }}
                                         </button>

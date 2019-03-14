@@ -8,7 +8,7 @@
     <meta id="token" name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Project Box</title>
-    <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/png" sizes="16x16">
+    <link rel="icon" href="{{ asset('images/logo-purple.png') }}" type="image/png" sizes="16x16">
 
     <!-- Fonts/CDN -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -45,9 +45,24 @@
 </head>
 <body>
     <div id="app">
+<!--QUICK CONTAINERS-->
+      <!--New Post Container-->
+      <div id="new-post-container" class="global-form hidden">
+        <div class="content-container" style="margin: 10% auto 0 auto; width: 50%;">
+          @include('includes.forms.inc-new-post-form')
+        </div>
+      </div>
+      <!--Profile Settings Container-->
+      <div id="profile-settings-container" class="global-form hidden">
+        <div class="content-container" style="margin: 10% auto 0 auto; width: 50%;">
+          @include('includes.forms.inc-profile-settings-form')
+        </div>
+      </div>
+<!--NAVIGATION BAR-->
         <nav class="nav-container">
             @include('includes.desktop-nav')
         </nav>
+<!--MAIN PAGE CONTENT-->
       <div class="main-container">
 
           <div class="left-options-container">

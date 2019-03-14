@@ -1,6 +1,6 @@
 <div class="content-container-clear">
     <!--New Post Form-->
-    <button id="new-post-btn" style="width: 100%;" class="new-post-btn" name="button">New Post</button>
+    <button id="new-post-btn" style="width: 100%;" class="new-post-btn" name="button" type="button">New Post</button>
   </div>
 
   <div class="content-container">

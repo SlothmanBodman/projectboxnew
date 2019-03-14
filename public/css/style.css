@@ -39,6 +39,11 @@ img {
   color: var(--font-heading);
 }
 
+.one-half {
+  width: 49%;
+  display: inline-block;
+}
+
 .paragraph {
   color: var(--font-basic);
 }
@@ -104,6 +109,14 @@ img {
       border-radius: 6px;
       background-color: #FAFAFA;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.03);
+    }
+
+    .search-btn {
+      background-color: #ffffff !important;
+      color: var(--primary);
+      border: none;
+      width: auto;
+      height: auto;
     }
 
     .nav-right {
@@ -215,6 +228,22 @@ button:hover {
   color: var(--font-basic);
 }
 
+.caption {
+  width: 94%;
+  padding: 2%;
+  border: 1px solid #DBDBDB;
+  border-radius: 6px;
+  background-color: #FAFAFA;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.02);}
+}
+
+select {
+  width: 100% !important;
+  border: 1px solid #DBDBDB;
+  border-radius: 6px;
+  background-color: #FAFAFA;
+}
+
 
 /*profile*/
 
@@ -237,4 +266,14 @@ button:hover {
   width: 70%;
   display: inline-block;
   vertical-align: top;
+}
+
+/*quick containers*/
+.global-form {
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(155,155,155,0.8);
+  z-index: 100;
 }

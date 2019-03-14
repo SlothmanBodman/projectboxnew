@@ -20,7 +20,6 @@ class UserController extends Controller
       $q = $request->input('q');
 
       $users = Users::where('name','LIKE','%'.$q.'%')->get();
-
       return view('search')->with('users', $users)->withQuery( $q );
       }
 
