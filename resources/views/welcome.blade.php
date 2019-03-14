@@ -14,12 +14,11 @@
         <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
 
     </head>
-    <body>
+    <body style="background-image: url({{ asset('images/background.jpg') }});">
         <div class="wlc-body-container">
               <div class="wlc-content-left">
                 <div class="wlc-title-img">
-                  <img style="width: 20%; height: auto;" src="{{ asset('images/logo-white.png')}}" alt="">
-                </div>
+                  
               </div>
 
               <div class="wlc-buttons">

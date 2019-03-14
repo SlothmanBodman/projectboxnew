@@ -12,8 +12,8 @@
         <button style="width: 100%;"id="generate" onclick="getProject()">Generate!</button>
     </div>
   </div>
-  <div class="content-container">
-    <p class="paragraph">
+  <div id="rand-prj-container" class="content-container hidden">
+    <p id="rand-project" class="paragraph">
       <span id="displayOne"></span>
       <span id="projectResult"></span>
       <span id="displayTwo"></span>

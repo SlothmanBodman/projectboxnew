@@ -1,5 +1,15 @@
-//Create two arrays for projects, businesses and names
+//check for session project
+$(document).ready( function(){
+  window.sessionStorage;
+  if (sessionStorage.project == null) {
+    console.log('no project generated')
+  } else {
+    document.getElementById("rand-project").innerHTML = sessionStorage.project;
+    $('#rand-prj-container').removeClass('hidden');
+  }
+});
 
+//Create two arrays for projects, businesses and names
 var projectArray = ['Logo','Website','Flyer','Brochure','Poster','Business Card','Animated Video','Postcard','Illustration','T-Shirt Design'];
 
 var companyArray = ['Leisure Center', 'Primary School', 'Construction', 'Fish Mongers', 'Retirement Home',
@@ -22,9 +32,16 @@ function getProject() {
   var company = companyArray[Math.floor(Math.random() * companyArray.length)];
   var name = nameArray[Math.floor(Math.random() * nameArray.length)];
 //print random variables and formating text to page
+  $('#rand-prj-container').removeClass('hidden');
   document.getElementById("projectResult").innerHTML = project;
   document.getElementById("companyResult").innerHTML = company;
   document.getElementById("nameResult").innerHTML = name;
   document.getElementById("displayOne").innerHTML = displayOne;
   document.getElementById("displayTwo").innerHTML = displayTwo;
+
+  var project = document.getElementById("rand-project").innerHTML;
+
+  sessionStorage.project = project;
+
+  console.log(sessionStorage.project);
 };
