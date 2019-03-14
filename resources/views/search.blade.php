@@ -25,6 +25,7 @@
                       </div>
                     </div>
                   @endforeach
+                  {{$users->links()}}
                 @else
                     <div class="content-container">
                         <p class="paragraph">This Search Returned no Users.</p>

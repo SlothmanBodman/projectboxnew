@@ -76,7 +76,7 @@ img {
 }
 
   .nav-content {
-    width: 70%;
+    width: 80%;
     margin: auto;
     vertical-align: middle;
   }
@@ -149,15 +149,16 @@ img {
 
 /*Body Containers*/
   .main-container {
-    width: 70%;
+    width: 80%;
     margin:  100px auto 100px auto;
   }
 
     .left-options-container {
-      width: 24%;
+      width: 20%;
       display: inline-block;
       text-align: center;
       vertical-align: top;
+      padding: 0 2%;
     }
 
     .body-container {
@@ -167,10 +168,11 @@ img {
     }
 
     .right-options-container {
-      width: 24%;
+      width: 20%;
       display: inline-block;
       text-align: center;
       vertical-align: top;
+      padding: 0 2%;
     }
 
 /*content containers*/

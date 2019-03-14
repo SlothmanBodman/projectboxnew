@@ -16,12 +16,17 @@ use App\Comments;
 
 class UserController extends Controller
 {
-    public function searchUsers(Request $request) {
+    public function searchUsers(Request $request)
+    {
       $q = $request->input('q');
 
-      $users = Users::where('name','LIKE','%'.$q.'%')->get();
+      $users = Users::where('name','LIKE','%'.$q.'%')->paginate(10);
+      $pagination = $users->appends(array(
+        'q' => $q
+      ));
+
       return view('search')->with('users', $users)->withQuery( $q );
-      }
+    }
 
     public function userSettings(Request $request) {
 
