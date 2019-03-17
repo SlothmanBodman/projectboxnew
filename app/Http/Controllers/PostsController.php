@@ -33,7 +33,7 @@ class PostsController extends Controller
     request()->validate([
       'caption' => 'required',
       'type' => 'required',
-      'file' => 'required|mimes:jpeg,bmp,png,gif',
+      'file' => 'required|mimes:jpeg,bmp,png,gif|max:5000',
     ]);
 
     //Generate UUID for image and upload to storage

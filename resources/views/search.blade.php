@@ -2,7 +2,8 @@
 
 @section('content')
   <div style="width: 100%; text-align: left;">
-    <p class="paragraph">Your Search returned {{ count($users) }} results.</p>
+      <p class="paragraph">Your Search returned {{ $resultCount }} results.</p>
+      <p class="paragraph">Now Showing {{count($users)}} of {{$resultCount}} Results.</p>
   </div>
                 @if(count($users) > 0)
                   @foreach($users as $user)
@@ -25,7 +26,13 @@
                       </div>
                     </div>
                   @endforeach
-                  {{$users->links()}}
+
+                @if ($users->hasPages())
+                  <div class="content-container" style="text-align: center;">
+                    <p class="small-header">More Results</p>
+                    {{$users->links()}}
+                  </div>
+                @endif
                 @else
                     <div class="content-container">
                         <p class="paragraph">This Search Returned no Users.</p>

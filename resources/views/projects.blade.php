@@ -18,6 +18,12 @@
         </div>
       </div>
     @endforeach
+    @if ($briefs->hasPages())
+      <div class="content-container" style="text-align: center;">
+        <p class="small-header">More Briefs</p>
+        {{$briefs->links()}}
+      </div>
+    @endif
   @else
     <div class="content-container">
       <div class="content-container-header">

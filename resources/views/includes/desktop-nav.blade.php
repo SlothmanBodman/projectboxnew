@@ -8,7 +8,7 @@
       <div class="nav-center">
         <form method="POST" action="{{ route('usersearch') }}" enctype="multipart/form-data">
           @csrf
-          <input class="search-bar" type="text" name="q" placeholder="Search">
+          <input class="search-bar" type="text" name="search" placeholder="Search">
           <button class="search-btn" type="submit">
               <i class="fas fa-search"></i>
           </button>

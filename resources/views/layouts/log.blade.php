@@ -28,6 +28,17 @@
 </head>
 <body>
     <div id="app">
+      <!--Error Container-->
+      @if ($errors->any())
+          <div class="error-container">
+              <ul style="list-style: none;">
+                <p class="large-header">Error</p>
+                  @foreach ($errors->all() as $error)
+                      <li style="color: #DC143C;">{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
         <nav class="nav-container">
             <div class="creanu">Creanu</div>
         </nav>

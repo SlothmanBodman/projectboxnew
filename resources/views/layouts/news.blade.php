@@ -45,6 +45,17 @@
 </head>
 <body>
     <div id="app">
+      <!--Error Container-->
+      @if ($errors->any())
+          <div class="error-container">
+              <ul style="list-style: none;">
+                <p class="large-header">Error</p>
+                  @foreach ($errors->all() as $error)
+                      <li style="color: #DC143C;">{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
 <!--QUICK CONTAINERS-->
       <!--New Post Container-->
       <div id="new-post-container" class="global-form hidden">

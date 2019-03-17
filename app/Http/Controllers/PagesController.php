@@ -34,7 +34,7 @@ class PagesController extends Controller
       //static layout data
       $title = 'Projects';
 
-      $briefs = DB::table('briefs')->get();
+      $briefs = DB::table('briefs')->simplePaginate(10);
       //return view function
       return view('projects', compact('title'))->with('briefs', $briefs);
   }
@@ -67,17 +67,27 @@ class PagesController extends Controller
   //return another users profile
   public function userprofile($id)
   {
-    //get relevant user data
+    //get relevant page data
     $posts = Posts::whereuser_id($id)->with('comments')->get();
     $user = Users::find($id);
+    $profileFollowing = Followers::where('user_id', '=', $id)->pluck('follow_id')->toArray();
+    $profileFollowers = Followers::where('follow_id', '=', $id)->pluck('user_id')->toArray();
+
+    //get follows/following data
+    $followers = Users::whereIn('id', $profileFollowers)->get();
+    $following = Users::whereIn('id', $profileFollowing)->get();
+
+    //relevent auth user data
     $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
-    $followIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
+    $userfollowIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
 
     //return user profile with data
     return view('userprofile')
       ->with('user', $user)
       ->with('posts', $posts)
-      ->with('followIdArray', $followIdArray)
+      ->with('userfollowIdArray', $userfollowIdArray)
+      ->with('followers', $followers)
+      ->with('following', $following)
       ->with('userLikes', $userLikes);
   }
 }

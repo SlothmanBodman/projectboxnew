@@ -18,14 +18,18 @@ class UserController extends Controller
 {
     public function searchUsers(Request $request)
     {
-      $q = $request->input('q');
 
-      $users = Users::where('name','LIKE','%'.$q.'%')->paginate(10);
-      $pagination = $users->appends(array(
-        'q' => $q
-      ));
+      request()->validate([
+        'search' => 'required',
+      ]);
 
-      return view('search')->with('users', $users)->withQuery( $q );
+      $q = $request->input('search');
+
+      $resultCount = Users::where('name','LIKE','%'.$q.'%')->count();
+      $users = Users::where('name','LIKE','%'.$q.'%')->simplePaginate(10);
+      $pagination = $users->appends(array('q' => $q));
+
+      return view('search')->with('users', $users)->withQuery( $q )->with('resultCount', $resultCount);
     }
 
     public function userSettings(Request $request) {
