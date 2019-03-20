@@ -46,13 +46,13 @@
                 @endif
             </div>
         </div>
-
+        <br>
         <div class="form-group row mb-0">
             <div class="col-md-8 offset-md-4">
                 <button type="submit" class="btn btn-primary">
                     {{ __('Post') }}
                 </button>
-                <button id="quick-container-close-1" class="btn btn-primary" type="button">
+                <button id="quick-container-close-1" class="btn btn-primary mobile-remove" type="button">
                     {{ __('Close') }}
                 </button>
             </div>

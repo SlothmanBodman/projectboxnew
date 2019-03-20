@@ -1,3 +1,4 @@
+
 @foreach ($followPosts->reverse() as $post)
   <div class="content-container" id="{{$post->type}}">
       <div class="content-container-header">

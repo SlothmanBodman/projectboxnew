@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Project Box</title>
+    <title>Creanu</title>
     <link rel="icon" href="{{ asset('images/logo-purple.png') }}" type="image/png" sizes="16x16">
 
     <!-- Fonts/CDN -->

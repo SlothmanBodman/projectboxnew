@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta id="token" name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Project Box</title>
+    <title>Creanu</title>
     <link rel="icon" href="{{ asset('images/logo-purple.png') }}" type="image/png" sizes="16x16">
 
     <!-- Fonts/CDN -->
@@ -19,6 +19,7 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
 
+
     <!-- Styles -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -29,6 +30,7 @@
     <script type="text/javascript" src="{{ asset('js/quickContainerControl.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/feedControl.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/enterPrevent.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/mobile-menu-control.js') }}"></script>
 
     <!--Ajax Scripts-->
     <script src="{{ asset('js/likeAjax.js') }}" defer></script>
@@ -69,9 +71,16 @@
           @include('includes.forms.inc-profile-settings-form')
         </div>
       </div>
+<!--MOBILE MENU-->
+    <div class="mobile-menu-container" id="mobile-menu">
+      @include('includes.mobile-menu')
+    </div>
 <!--NAVIGATION BAR-->
         <nav class="nav-container">
             @include('includes.desktop-nav')
+        </nav>
+        <nav class="nav-container-mobile" id="mobile">
+          @include('includes.mobile-nav')
         </nav>
       <div class="main-container">
 <!--MAIN PAGE CONTENT-->
