@@ -57,10 +57,6 @@
   margin: auto;
 }
 
-body {
-  background-color: var(--primary);
-}
-
 .paragraph {
   color: var(--font-basic);
 }
@@ -125,4 +121,22 @@ button {
   text-align: center;
   cursor: pointer;
   display: inline-block;
+}
+
+.wlc-mobile-buttons {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .wlc-nav-container {
+    display: none;
+  }
+
+  .wlc-content-right {
+    width: 100%;
+  }
+
+  .wlc-mobile-buttons {
+    display: block;
+  }
 }

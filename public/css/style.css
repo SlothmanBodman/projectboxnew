@@ -392,6 +392,10 @@ select {
   z-index: 100;
 }
 
+
+.mobile-additional-options {
+  display: none;
+}
 /*Layout Switch For Mobile*/
 
 @media only screen and (max-width: 760px) {
@@ -413,8 +417,13 @@ select {
     display: none;
   }
 
+
   /*show content*/
   .nav-container-mobile {
+    display: block;
+  }
+
+  .mobile-additional-options {
     display: block;
   }
 

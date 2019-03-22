@@ -26,7 +26,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script type="text/javascript" src="{{ asset('js/nav-control.js') }}"></script>
 </head>
-<body>
+<body style="background-image: url({{ asset('images/background.jpg') }});">
     <div id="app">
       <!--Error Container-->
       @if ($errors->any())

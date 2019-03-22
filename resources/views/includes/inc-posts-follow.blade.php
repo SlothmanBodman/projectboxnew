@@ -32,7 +32,7 @@
       <!-- COMMENTS SECTION -->
       <div class="content-container-body">
         <div class="content-container-comment hidden" id="fake-comment{{$post->id}}">
-          <p class="paragraph"><span >You</span>: <span class="fake-comment"></span></p>
+          <p class="paragraph"><span >{{Auth::user()->name}}</span>: <span class="fake-comment"></span></p>
         </div>
       @foreach ($post->comments->reverse() as $comment)
           <div class="content-container-comment">

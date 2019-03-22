@@ -18,7 +18,7 @@
         <div class="wlc-body-container">
               <div class="wlc-content-left">
                 <div class="wlc-title-img">
-                  
+
               </div>
 
               <div class="wlc-buttons">
@@ -86,6 +86,15 @@
                 </div>
                 <br>
                 <a href="{{ route('register') }}" class="wlc-nav-btn"><button type="button">Register</button></a>
+                <div class="wlc-mobile-buttons">
+
+                  @auth
+                      <a href="{{ url('/home') }}" class="wlc-nav-btn"><button type="button">Home</button></a>
+                  @else
+                      <a href="{{ route('login') }}" class="wlc-nav-btn"><button type="button">Login</button></a>
+                  @endauth
+
+                </div>
               </div>
             </div>
         </div>

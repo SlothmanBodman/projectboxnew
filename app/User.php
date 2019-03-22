@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->hasMany(likes::class);
     }
 
+    public function chats()
+    {
+        return $this->hasMany(Chats::class);
+    }
+
     public function posts()
     {
         return $this->hasMany(Posts::class);
