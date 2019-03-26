@@ -39,6 +39,10 @@
                         <button name="followId" value="{{ $user->id }}" style="width: 100%;" name="button">Follow</button>
                       </form>
                     @endif
+                    <form action="{{ route('newchat')}}" method="post">
+                      @csrf
+                      <button name="userTwoId" value="{{ $user->id }}" style="width: 100%;" name="button">Message</button>
+                    </form>
                   </div>
                 </div>
               </div>

@@ -60,6 +60,9 @@ Route::post('/follow', 'FollowController@follow')->name('follow');
 
 Route::post('/unfollow', 'FollowController@unfollow')->name('unfollow');
 
+//create a new chat
+Route::post('/newchat', 'ChatsController@newchat')->name('newchat');
+
 /*AJAX ROUTES*/
 
 //like post ajax route

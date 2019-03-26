@@ -37,6 +37,10 @@
                           <a class="nav-item" href="{{ route('profile') }}">
                               <i class="fas fa-user nav-icons fa-1x"></i>
                           </a>
+
+                          <a class="nav-item" href="{{ route('chats') }}">
+                              <i class="fas fa-comment nav-icons fa-1x"></i>
+                          </a>
               @endguest
           </ul>
       </div>
