@@ -12,12 +12,12 @@
         <button style="width: 100%;"id="generate" onclick="getProject()">Generate!</button>
     </div>
   </div>
-  <div id="rand-prj-container" class="content-container hidden">
-    <p id="rand-project" class="paragraph">
-      <span id="displayOne"></span>
-      <span id="projectResult"></span>
-      <span id="displayTwo"></span>
-      <span id="nameResult"></span>
-      <span id="companyResult"></span>
+  <div id="rand-prj-container-2" class="content-container hidden">
+    <p id="rand-project-2" class="paragraph">
+      <span id="displayOne-2"></span>
+      <span id="projectResult-2"></span>
+      <span id="displayTwo-2"></span>
+      <span id="nameResult-2"></span>
+      <span id="companyResult-2"></span>
     </p>
   </div>

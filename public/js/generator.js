@@ -1,10 +1,19 @@
 //check for session project
 $(document).ready( function(){
   window.sessionStorage;
-  if (sessionStorage.project == null) {
+  if (sessionStorage.projectDesktop == null) {
     console.log('no project generated')
   } else {
-    document.getElementById("rand-project").innerHTML = sessionStorage.project;
+    //desktop
+    document.getElementById("rand-project-2").innerHTML = sessionStorage.projectDesktop;
+    $('#rand-prj-container-2').removeClass('hidden');
+  }
+
+  if (sessionStorage.projectMobile == null) {
+    console.log('no project generated')
+  } else {
+    //desktop
+    document.getElementById("rand-project").innerHTML = sessionStorage.projectMobile;
     $('#rand-prj-container').removeClass('hidden');
   }
 });
@@ -32,16 +41,31 @@ function getProject() {
   var company = companyArray[Math.floor(Math.random() * companyArray.length)];
   var name = nameArray[Math.floor(Math.random() * nameArray.length)];
 //print random variables and formating text to page
+  //mobile
   $('#rand-prj-container').removeClass('hidden');
+  //desktop
+  $('#rand-prj-container-2').removeClass('hidden');
+  //mobile
   document.getElementById("projectResult").innerHTML = project;
   document.getElementById("companyResult").innerHTML = company;
   document.getElementById("nameResult").innerHTML = name;
   document.getElementById("displayOne").innerHTML = displayOne;
   document.getElementById("displayTwo").innerHTML = displayTwo;
 
-  var project = document.getElementById("rand-project").innerHTML;
+  //desktop
+  document.getElementById("projectResult-2").innerHTML = project;
+  document.getElementById("companyResult-2").innerHTML = company;
+  document.getElementById("nameResult-2").innerHTML = name;
+  document.getElementById("displayOne-2").innerHTML = displayOne;
+  document.getElementById("displayTwo-2").innerHTML = displayTwo;
 
-  sessionStorage.project = project;
+  //mobile
+  var projectMobile = document.getElementById("rand-project").innerHTML;
+  //desktop
+  var projectDesktop = document.getElementById("rand-project-2").innerHTML;
+
+  sessionStorage.projectmobile = projectMobile;
+  sessionStorage.projectDesktop = projectDesktop;
 
   console.log(sessionStorage.project);
 };
