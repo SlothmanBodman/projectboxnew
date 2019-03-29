@@ -25,6 +25,9 @@ class ChatsController extends Controller
       $chat = Chats::where("id", "=", $id)->get();
       $messages = Messages::where("chat_id", "=", $id)->with('sender')->get();
 
+      //Set Messages as Read
+      Messages::where("chat_id", "=", $id)->where("read", "=", "0")->increment('read');
+
       return view('chat')->with('messages', $messages)->with('chat', $chat);
     }
 
@@ -66,5 +69,39 @@ class ChatsController extends Controller
         return view('chat');
       }
       /*End IF Statement to Check if Chat Exists*/
+    }
+
+    public function sendMessage(Request $request)
+    {
+
+      $message = new \App\Messages();
+
+      $message->chat_id = $request->input('chatId');
+      $message->sender_id = Auth::id();
+      $message->receiver_id = $request->input('receiverId');
+      $message->message = $request->input('message');
+      $message->save();
+
+      return;
+    }
+
+    public function getMessages(Request $request) {
+
+
+        $chat_id = $request->input('chatId');
+
+        $messages = Messages::where("chat_id", "=", $chat_id)->where("read", "=", "0")->get();
+
+        //Set Messages as Read
+        Messages::where("chat_id", "=", $chat_id)->where("read", "=", "0")->increment('read');
+
+        if (count($messages) > 0)
+        {
+          return $messages;
+        }
+        else
+        {
+          return;
+        }
     }
 }

@@ -55,11 +55,6 @@ Route::post('/filter', 'HomeController@filter')->name('filter');
 //user profile Setting
 Route::post('/updateprofile', 'UserController@userSettings')->name('updateprofile');
 
-//follow and unfollow ajax routes
-Route::post('/follow', 'FollowController@follow')->name('follow');
-
-Route::post('/unfollow', 'FollowController@unfollow')->name('unfollow');
-
 //create a new chat
 Route::post('/newchat', 'ChatsController@newchat')->name('newchat');
 
@@ -73,3 +68,14 @@ Route::post('/unlike', 'PostsController@unlikePost')->name('unlike');
 
 //comment post ajax routes
 Route::post('/comment', 'PostsController@createComment')->name('comment');
+
+//follow and unfollow ajax routes
+Route::post('/follow', 'FollowController@follow')->name('follow');
+
+Route::post('/unfollow', 'FollowController@unfollow')->name('unfollow');
+
+//send message ajax route
+Route::post('/sendmessage', 'ChatsController@sendMessage')->name('sendMessage');
+
+//live get messages Ajax Route
+Route::any('/getmessages', 'ChatsController@getMessages')->name('getMessages');

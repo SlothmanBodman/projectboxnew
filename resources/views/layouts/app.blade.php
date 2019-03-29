@@ -36,13 +36,17 @@
     <script src="{{ asset('js/likeAjax.js') }}" defer></script>
     <script src="{{ asset('js/unlikeAjax.js') }}" defer></script>
     <script src="{{ asset('js/commentAjax.js') }}" defer></script>
+    <script src="{{ asset('js/messageAjax.js') }}" defer></script>
+
 
     <script type="text/javascript">
       var urlLike ='{{ route('like') }}';
       var urlunLike ='{{ route('unlike') }}';
       var urlComment ='{{ route('comment') }}';
-      var urlFollow ='{{ route('follow') }}';
-      var urlUnfollow ='{{ route('unfollow') }}';
+      var urlMessage ='{{ route('sendMessage') }}';
+      var urlGetMessages ='{{ route('getMessages') }}';
+
+      var authId = '{{ Auth::user()->id }}';
     </script>
 </head>
 <body>

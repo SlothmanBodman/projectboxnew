@@ -20,7 +20,7 @@ class CreateMessagesTable extends Migration
             $table->integer('receiver_id');
             $table->longText('message');
             $table->string('file')->nullable();
-            $table->boolean('read')->default('0');
+            $table->boolean('read')->default(0);
             $table->timestamps();
         });
     }
