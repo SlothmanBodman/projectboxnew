@@ -21,7 +21,7 @@
     </div>
     <!--NEW MESSAGE FORM-->
     <!-------------------->
-    <!--DISPLAY MESSAGES-->
+    <!--DISPLAY MESSAGES--> 
 <div id="chat-window">
 
 
@@ -30,7 +30,7 @@
         @if($message->sender_id == Auth::user()->id)
 
             <div class="content-container" style=" text-align: right;background-color: var(--primary);">
-              <p class="paragraph" style="color: white;">{{$message->message}}: You</p>
+              <p class="paragraph" style="color: white;">{{$message->message}} :You</p>
             </div>
 
         @else

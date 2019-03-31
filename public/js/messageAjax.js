@@ -21,6 +21,8 @@ $('#message-send').on('click', function(event){
 
   $('#message-input').val("");
 
+  $("#chat-window").prepend('<div class="content-container" style="text-align: right;background-color: var(--primary);"><p class="paragraph" style="color: white;">' + message + ':You</p></div>');
+
 });
 
 
@@ -35,15 +37,16 @@ function getMessages() {
      url: urlGetMessages,
      data: {chatId: chatId},
      success: function(data) {
-       console.log(data);
-       if (data.id == authId)
-       {
-         
-       }
-       else
-       {
+       //console.log(data);
 
-       }
+      if (data.length > 0)
+      {
+        var decodeData = JSON.parse(data);
+          //console.log(decodeData);
+       $.each(decodeData, function(key, value){
+           $("#chat-window").prepend('<div class="content-container"><p class="paragraph">' + decodeData[0].sender.name+ ': ' + decodeData[0].message + '</p></div>');
+       });
+     }
      }
    });
 }

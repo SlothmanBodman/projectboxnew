@@ -90,18 +90,14 @@ class ChatsController extends Controller
 
         $chat_id = $request->input('chatId');
 
-        $messages = Messages::where("chat_id", "=", $chat_id)->where("read", "=", "0")->get();
-
+        $messages = Messages::where("chat_id", "=", $chat_id)->where("receiver_id", "=", Auth::user()->id)->where("read", "=", "0")->with('sender')->get();
         //Set Messages as Read
-        Messages::where("chat_id", "=", $chat_id)->where("read", "=", "0")->increment('read');
 
         if (count($messages) > 0)
         {
-          return $messages;
-        }
-        else
-        {
-          return;
+          Messages::where("chat_id", "=", $chat_id)->where("read", "=", "0")->increment('read');
+          $jsonMessages = $messages->toJson();
+          return $jsonMessages;
         }
     }
 }
