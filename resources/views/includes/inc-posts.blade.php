@@ -1,4 +1,4 @@
-@foreach ($posts->reverse() as $post)
+@foreach ($posts as $post)
     <div class="content-container" id="{{$post->type}}">
         <div class="content-container-header">
           <a class="alternate_link" href="{{ route('userprofile', ['id' => $post->user_id])}}"><p class="small-header">{{$post->user_name}}</p></a>

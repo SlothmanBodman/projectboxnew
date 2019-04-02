@@ -23,6 +23,9 @@ Auth::routes();
 //home page
 Route::get('/home', 'HomeController@index')->name('home');
 
+//home page
+Route::get('/globalfeed', 'HomeController@global')->name('global');
+
 //projects page
 Route::get('/projects', 'PagesController@projects')->name('projects');
 

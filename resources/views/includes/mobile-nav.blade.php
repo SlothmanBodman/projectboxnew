@@ -11,6 +11,10 @@
   <a class="nav-mob-item" href="{{ route('profile') }}">
       <i class="fas fa-user nav-mob-icons fa-3x"></i>
   </a>
+  <!--Chats  Page-->
+  <a class="nav-mob-item" href="{{ route('chats') }}">
+      <i class="fas fa-comment nav-icons fa-3x"></i>
+  </a>
 
   <a class="nav-mob-item">
       <i  id="open-mobile-menu" class="fas fa-ellipsis-v nav-mob-icons fa-3x"></i>

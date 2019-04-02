@@ -33,43 +33,38 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //static layout data
-        $title = 'Newsfeed';
         //database data
-        $posts = Posts::with('comments')->get();
         $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
         $followIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
-        $followPosts = Posts::with('comments')->whereIn('user_id', $followIdArray)->get();
+        $followPosts = Posts::with('comments')->whereIn('user_id', $followIdArray)->orderBy('created_at', 'desc')->simplePaginate(20);
 
-        //return view function
-        return view('home', compact('title'))
-          ->with('posts', $posts)
-          ->with('userLikes', $userLikes)
-          ->with('followPosts', $followPosts);
+        return view('home')->with('userLikes', $userLikes)->with('followPosts', $followPosts);
 
+
+    }
+
+    public function global()
+    {
+      $posts = Posts::with('comments')->orderBy('created_at', 'desc')->simplePaginate(20);
+      $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
+
+      //return view function
+      return view('globalfeed')->with('posts', $posts)->with('userLikes', $userLikes);
     }
 
     public function filter(Request $request)
     {
-      //static layout data
-      $title = 'Newsfeed';
 
       //get filter tag from form data
       $type = $request->input('type');
 
       //get posts from table where type is selected type
-      $posts = Posts::wheretype($type)->with('comments')->get();
+      $posts = Posts::wheretype($type)->with('comments');
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
-      $followIdArray = Followers::where('user_id', '=', Auth::id())->pluck('follow_id')->toArray();
-      $followPosts = Posts::with('comments')->whereIn('user_id', $followIdArray)->wheretype($type)->get();
 
-
-      return view('home', compact('title'))
-        ->with('posts', $posts)
-        ->with('userLikes', $userLikes)
-        ->with('followPosts', $followPosts);
+      return view('globalfeed')->with('posts', $posts)->with('userLikes', $userLikes);
 
     }
 }
