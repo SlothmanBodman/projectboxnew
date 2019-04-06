@@ -53,7 +53,7 @@ Route::get('/chat/{id}', 'ChatsController@chat')->name('chat');
 Route::post('/newpost', 'PostsController@create')->name('newpost');
 
 //filter feed posts
-Route::post('/filter', 'HomeController@filter')->name('filter');
+Route::post('/filterfeed', 'HomeController@filter')->name('filterfeed');
 
 //user profile Setting
 Route::post('/updateprofile', 'UserController@userSettings')->name('updateprofile');

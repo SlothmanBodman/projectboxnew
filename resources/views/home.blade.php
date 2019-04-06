@@ -23,7 +23,10 @@
 
         @if(count($followPosts) > 0)
         @include("includes.inc-posts-follow")
-          {{$followPosts->links()}}
+        @if ($followPosts->hasPages())
+            <p class="small-header">More Posts</p>
+            {{$followPosts->links()}}
+        @endif
         @else
           <div class="content-container">
             <div class="content-container-header">

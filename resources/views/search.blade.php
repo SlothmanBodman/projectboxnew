@@ -28,11 +28,10 @@
                   @endforeach
 
                 @if ($users->hasPages())
-                  <div class="content-container" style="text-align: center;">
                     <p class="small-header">More Results</p>
-                    {{$users->links()}}
-                  </div>
+                    {{$users->links()}}  
                 @endif
+
                 @else
                     <div class="content-container">
                         <p class="paragraph">This Search Returned no Users.</p>

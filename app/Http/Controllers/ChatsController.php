@@ -43,20 +43,16 @@ class ChatsController extends Controller
       {
         //get existing chat
         $chatId = Chats::where('user_one_id', '=', $user_id_one)->where('user_two_id', '=', $user_id_two)->pluck('id');
-        //get chat messages
-        $messages = Messages::where('chat_id', '=', $chatId)->get();
-
-        return view('chat')->with('messages', $messages);
+        //dd($chatId);
+        return redirect()->route('chat', ['id' => $chatId[0]]);
 
       }
       elseif (Chats::where('user_one_id', '=', $user_id_two)->where('user_two_id', '=', $user_id_one)->exists())
       {
         //get existing chat
         $chatId = Chats::where('user_one_id', '=', $user_id_two)->where('user_two_id', '=', $user_id_one)->pluck('id');
-        //get chat messages
-        $messages = Messages::where('chat_id', '=', $chatId)->get();
-
-        return view('chat')->with('messages', $messages);
+        //dd($chatId);
+        return redirect()->route('chat', ['id' => $chatId[0]]);
       }
       else
       {
@@ -66,7 +62,9 @@ class ChatsController extends Controller
         $chat->user_two_id = $request->input('userTwoId');
         $chat->save();
 
-        return view('chat');
+        $chatId = Chats::where('user_one_id', '=', $user_id_two)->where('user_two_id', '=', $user_id_one)->pluck('id');
+
+        return redirect()->route('chat', ['id' => $chatId[0]]);
       }
       /*End IF Statement to Check if Chat Exists*/
     }

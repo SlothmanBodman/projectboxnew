@@ -4,10 +4,10 @@
   <!--MObile NEwsfeed Options-->
     <div id="global-feed-container" class="row justify-content-center">
       <div class="mobile-additional-options">
-        <div class="content-container">
+        <div style="display: none;" class="content-container">
                         <div class="content-container-body">
                           <p class="small-header">Filter Posts Catagory</p>
-                          <form class="" action="{{ route('filter') }}" method="post">
+                          <form class="" action="{{ route('filterfeed') }}" method="post">
                               @csrf
                                 <select class="catagory-select" id="type" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="type">
                                   <option value="uiux">UI/UX</option>
@@ -47,8 +47,11 @@
       <!--Posts-->
 
         @if(count($posts) > 0)
-          @include("includes.inc-posts")        
-            {{$posts->links()}}
+          @include("includes.inc-posts")
+            @if ($posts->hasPages())
+                <p class="small-header">More Posts</p>
+                {{$posts->links()}}
+            @endif
         @else
           <div class="content-container">
             <div class="content-container-header">

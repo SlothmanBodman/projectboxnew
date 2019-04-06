@@ -31,6 +31,7 @@
     <script type="text/javascript" src="{{ asset('js/feedControl.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/enterPrevent.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/mobile-menu-control.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/error-window-control.js') }}"></script>
 
     <!--Ajax Scripts-->
     <script src="{{ asset('js/likeAjax.js') }}" defer></script>
@@ -49,13 +50,14 @@
     <div id="app">
       <!--Error Container-->
       @if ($errors->any())
-          <div class="error-container">
+          <div id="error-window" class="error-container">
               <ul style="list-style: none;">
                 <p class="large-header">Error</p>
                   @foreach ($errors->all() as $error)
                       <li style="color: #DC143C;">{{ $error }}</li>
                   @endforeach
               </ul>
+              <p id="close-error-window" class="small-header" style="cursor: pointer;">Close</p>
           </div>
       @endif
 <!--QUICK CONTAINERS-->

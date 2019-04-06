@@ -35,7 +35,7 @@
 <div class="content-container">
                 <div class="content-container-body">
                   <p class="small-header">Filter Posts Catagory</p>
-                  <form class="" action="{{ route('filter') }}" method="post">
+                  <form class="" action="{{ route('filterfeed') }}" method="post">
                       @csrf
                         <select class="catagory-select" id="type" type="text" class="form-control{{ $errors->has('caption') ? ' is-invalid' : '' }}" name="type">
                           <option value="uiux">UI/UX</option>

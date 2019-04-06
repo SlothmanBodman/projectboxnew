@@ -59,10 +59,9 @@ class HomeController extends Controller
       $type = $request->input('type');
 
       //get posts from table where type is selected type
-      $posts = Posts::wheretype($type)->with('comments');
+      $posts = Posts::where('type', '=', $type)->with('comments')->simplePaginate(1);
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
-
 
       return view('globalfeed')->with('posts', $posts)->with('userLikes', $userLikes);
 

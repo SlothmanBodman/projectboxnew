@@ -26,10 +26,11 @@ class UserController extends Controller
       $q = $request->input('search');
 
       $resultCount = Users::where('name','LIKE','%'.$q.'%')->count();
-      $users = Users::where('name','LIKE','%'.$q.'%')->simplePaginate(10);
+      $users = Users::where('name','LIKE','%'.$q.'%')->simplePaginate(1);
       $pagination = $users->appends(array('q' => $q));
 
-      return view('search')->with('users', $users)->withQuery( $q )->with('resultCount', $resultCount);
+      //return view('search')->with('users', $users)->with('resultCount', $resultCount);
+      return view('search')->with('users', $users)->withQuery($q)->with('resultCount', $resultCount);
     }
 
     public function userSettings(Request $request) {
