@@ -61,6 +61,9 @@ Route::post('/updateprofile', 'UserController@userSettings')->name('updateprofil
 //create a new chat
 Route::post('/newchat', 'ChatsController@newchat')->name('newchat');
 
+//clear Notifications
+Route::post('/clearnotifications', 'UserController@clearNotifications')->name('clearNotifications');
+
 /*AJAX ROUTES*/
 
 //like post ajax route

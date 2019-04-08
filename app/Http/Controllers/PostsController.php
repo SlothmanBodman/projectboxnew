@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use App\Users;
 use App\likes;
 use App\Comments;
+use App\Notifications;
 
 class PostsController extends Controller
 {
@@ -65,6 +66,17 @@ class PostsController extends Controller
     $like->user_id = Auth::id();
     $like->post_id = $request->input('postId');
     $like->save();
+
+
+    //create Notification
+    $type = 'like';
+
+    $notification = new \App\Notifications();
+
+    $notification->type = $type;
+    $notification->creator_id = Auth::id();
+    $notification->reciever_id = $request->input('recieverId');
+    $notification->save();
     //end process
     return;
   }
@@ -94,6 +106,16 @@ class PostsController extends Controller
     $comment->caption = $request->input('comment');
     $comment->likes = 0;
     $comment->save();
+
+    //create notification
+    $type = 'comment';
+
+    $notification = new \App\Notifications();
+
+    $notification->type = $type;
+    $notification->creator_id = Auth::id();
+    $notification->reciever_id = $request->input('recieverId');
+    $notification->save();
 
     return;
   }

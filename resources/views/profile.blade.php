@@ -35,12 +35,38 @@
     </div>
   </div>
 
+    <div class="content-container">
+      <p class="large-header">Notification Centre</p>
+      @if(count($notifications) > 0)
+      @foreach($notifications as $notification)
+        @if($notification->type == 'message')
+          <p class="paragraph">{{$notification->user->name}} sent you a message.</p>
+        @elseif($notification->type == 'like')
+          <p class="paragraph">{{$notification->user->name}} liked your post.</p>
+        @elseif($notification->type == 'comment')
+          <p class="paragraph">{{$notification->user->name}} commented on your post.</p>
+        @elseif($notification->type == 'follow')
+          <p class="paragraph">{{$notification->user->name}} started following you.</p>
+        @endif
+
+      @endforeach
+      <br>
+      <form class="" action="{{route('clearNotifications')}}" method="post">
+        @csrf
+        <button type="submit" name="button">Clear Notifications</button>
+      </form>
+      @else
+        <p class="paragraph">No New Notifications.</p>
+      @endif
+    </div>
+
+
                 @if(count($posts) > 0)
                   @include("includes.inc-posts-personal")
                 @else
                     <div class="content-container">
                       <div class="content-container-header">
-                        Welcome To Project Box
+                        Welcome To Creanu
                       </div>
                       <div class="content-contianer-body">
                         <p>You have no posts. Completed Briefs and Projects you chose to share will appear here!</p>

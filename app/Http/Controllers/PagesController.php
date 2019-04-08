@@ -12,6 +12,7 @@ use App\User;
 use App\likes;
 use App\Comments;
 use App\Followers;
+use App\Notifications;
 use App\Models\Brief;
 
 class PagesController extends Controller
@@ -56,12 +57,14 @@ class PagesController extends Controller
       $posts = Posts::whereuser_id(Auth::id())->with('comments')->get();
       $followersCount = Followers::where('follow_id', '=', Auth::id())->count();
       $followingCount = Followers::where('user_id', '=', Auth::id())->count();
+      $notifications = Notifications::where('reciever_id', '=', Auth::id())->where('read', '=', '0')->with('user')->get();
 
       //return view function
       return view('profile', compact('title'))
           ->with('posts', $posts)
           ->with('followersCount', $followersCount)
-          ->with('followingCount', $followingCount);
+          ->with('followingCount', $followingCount)
+          ->with('notifications', $notifications);
   }
 
   //return another users profile

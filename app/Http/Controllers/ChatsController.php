@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Users;
 use App\Chats;
 use App\Messages;
+use App\Notifications;
 
 class ChatsController extends Controller
 {
@@ -79,6 +80,15 @@ class ChatsController extends Controller
       $message->receiver_id = $request->input('receiverId');
       $message->message = $request->input('message');
       $message->save();
+
+      $type = 'message';
+
+      $notification = new \App\Notifications();
+
+      $notification->type = $type;
+      $notification->creator_id = Auth::id();
+      $notification->reciever_id = $request->input('receiverId');
+      $notification->save();
 
       return;
     }

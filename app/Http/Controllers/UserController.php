@@ -55,4 +55,11 @@ class UserController extends Controller
       return redirect()->route('home');
     }
 
+    public function clearNotifications()
+    {
+      DB::table('notifications')->where('reciever_id', '=', Auth::id())->where('read', '=', '0')->increment('read');
+
+      return redirect()->route('profile');
+    }
+
 }

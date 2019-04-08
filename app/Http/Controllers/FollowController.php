@@ -13,6 +13,7 @@ use App\Users;
 use App\likes;
 use App\Comments;
 use App\Followers;
+use App\Notification;
 
 class FollowController extends Controller
 {
@@ -25,6 +26,18 @@ class FollowController extends Controller
       $follow->follow_id = $request->input('followId');
       $follow->save();
 
+
+      //notify user
+      $type = 'follow';
+
+      $notification = new \App\Notifications();
+
+      $notification->type = $type;
+      $notification->creator_id = Auth::id();
+      $notification->reciever_id = $request->input('followId');
+      $notification->save();
+
+      //end process
       return redirect()->back();
     }
 
