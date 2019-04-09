@@ -60,6 +60,7 @@ class HomeController extends Controller
 
       //get posts from table where type is selected type
       $posts = Posts::where('type', '=', $type)->with('comments')->simplePaginate(1);
+      $pagination = $posts->appends(array('type' => $type));
       //get liked posts
       $userLikes = auth()->user()->likes->pluck('post_id')->toArray();
 
