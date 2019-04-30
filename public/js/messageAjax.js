@@ -44,7 +44,8 @@ function getMessages() {
         var decodeData = JSON.parse(data);
           //console.log(decodeData);
        $.each(decodeData, function(key, value){
-           $("#chat-window").prepend('<div class="content-container"><p class="paragraph">' + decodeData[0].sender.name+ ': ' + decodeData[0].message + '</p></div>');
+           $("#chat-window").prepend('<div class="content-container"><p class="paragraph">'
+           + decodeData[0].sender.name+ ': ' + decodeData[0].message + '</p></div>');
        });
      }
      }

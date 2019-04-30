@@ -29,7 +29,7 @@ class UserController extends Controller
 
       $resultCount = Users::where('name','LIKE','%'.$search.'%')->count();
 
-      $users = Users::where('name','LIKE','%'.$search.'%')->simplePaginate(1);
+      $users = Users::where('name','LIKE','%'.$search.'%')->simplePaginate(10);
       $pagination = $users->appends(array('search' => $search));
 
 
